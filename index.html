@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DentCraft | Mobile Paintless Dent Repair (PDR) Experts</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><path fill='%23E0A82B' d='M464 128H336v-32c0-17.6-14.4-32-32-32h-96c-17.6 0-32 14.4-32 32v32H48c-26.5 0-48 21.5-48 48v224c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V176c0-26.5-21.5-48-48-48zM288 400h-64v-48c0-8.8 7.2-16 16-16s16 7.2 16 16v48zm80-240v32H144v-32h224z'/></svg>">
+    <meta name="description"
+        content="Mobile paintless dent repair (PDR) — hail damage, door dings, creases. Free mobile estimates, insurance claim assistance, and real-time repair tracking.">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'dent-gold': '#E0A82B',
+                        'dent-gold-dark': '#C48A1D',
+                        'dent-gold-bright': '#F5BC3C',
+                        'dent-charcoal': '#1E2A32',
+                        'dent-slate': '#2E3B44',
+                        'dent-light': '#F8F6F2',
+                        'dent-card': '#FFFFFF',
+                        'dark-bg': '#12181C',
+                        'dark-card': '#1E2A2F',
+                        'dark-surface': '#2A3A42',
+                    },
+                    fontFamily: {
+                        'sans': ['Roboto', 'system-ui', 'sans-serif'],
+                        'display': ['Outfit', 'sans-serif'],
+                        'premium': ['Syne', 'sans-serif'],
+                        'alt': ['Poppins', 'sans-serif'],
+                        'body': ['Roboto', 'sans-serif'],
+                    },
+                    animation: {
+                        'slide-up': 'slideUp 0.5s ease-out',
+                        'fade-in': 'fadeIn 0.3s ease-out',
+                        'glow-pulse': 'glowPulse 2s infinite',
+                    },
+                    keyframes: {
+                        slideUp: {
+                            '0%': { transform: 'translateY(30px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        glowPulse: {
+                            '0%, 100%': { boxShadow: '0 0 0 0 rgba(224,168,43,0.4)' },
+                            '50%': { boxShadow: '0 0 0 12px rgba(224,168,43,0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Syne:wght@400;500;600;700;800&family=Roboto:wght@300;400;500;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        body {
+            background-color: #F8F6F2;
+            color: #1E2A32;
+        }
+
+        .dark body {
+            background-color: #12181C;
+            color: #E8EDEE;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+        }
+
+        /* dent specific styles */
+        .dark .text-dent-gold {
+            color: #F5BC3C !important;
+        }
+
+        .dark .bg-dent-gold {
+            background-color: #F5BC3C !important;
+        }
+
+        .dark .border-dent-gold {
+            border-color: #F5BC3C !important;
+        }
+
+        .dark .service-icon {
+            background: rgba(245, 188, 60, 0.15) !important;
+            color: #F5BC3C !important;
+        }
+
+        .dark .badge {
+            background: rgba(245, 188, 60, 0.2) !important;
+            color: #FFE2A4 !important;
+        }
+
+        .dark .nav-item:hover {
+            color: #E0A82B !important;
+        }
+
+        .dark .nav-item::after {
+            background: #E0A82B !important;
+        }
+
+        .dark .auth-btn.login:hover {
+            border-color: #E0A82B !important;
+            color: #E0A82B !important;
+        }
+
+        .dark .auth-btn.signup {
+            background: #E0A82B;
+            color: #12181C;
+        }
+
+        .dark .auth-btn.signup:hover {
+            background: #C48A1D;
+        }
+
+        .dark .btn-drone {
+            background: #E0A82B;
+            color: #12181C;
+        }
+
+        .dark .btn-drone:hover {
+            background: #C48A1D;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .nav-item {
+            position: relative;
+            padding: 0.5rem 0;
+            font-weight: 600;
+            color: #1E2A32;
+            transition: color 0.3s;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .dark .nav-item {
+            color: #E8EDEE;
+        }
+
+        .nav-item:hover {
+            color: #E0A82B;
+        }
+
+        .nav-item::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #E0A82B;
+            transition: width 0.3s;
+        }
+
+        .nav-item:hover::after {
+            width: 100%;
+        }
+
+        .nav-item.active {
+            color: #E0A82B !important;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 220px;
+            background: white;
+            border-radius: 12px;
+            padding: 0.75rem 0;
+            box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s;
+            z-index: 1000;
+            border: 1px solid rgba(224, 168, 43, 0.2);
+        }
+
+        .dark .dropdown-menu {
+            background: #1E2A2F;
+            border-color: #3A4A52;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-item {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1.5rem;
+            color: #1E2A32;
+            transition: all 0.2s;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .dark .dropdown-item {
+            color: #E8EDEE;
+        }
+
+        .dropdown-item:hover {
+            background: rgba(224, 168, 43, 0.1);
+            color: #E0A82B;
+            padding-left: 1.75rem;
+        }
+
+        .dropdown-item i {
+            margin-right: 0.75rem;
+            width: 20px;
+            color: #E0A82B;
+        }
+
+        .auth-btn {
+            padding: 0.5rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 1px solid transparent;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .auth-btn.login {
+            background: transparent;
+            border-color: #CFD5DB;
+            color: #1E2A32;
+        }
+
+        .dark .auth-btn.login {
+            border-color: #4A5A62;
+            color: #E8EDEE;
+        }
+
+        .auth-btn.login:hover {
+            border-color: #E0A82B;
+            color: #E0A82B;
+        }
+
+        .auth-btn.signup {
+            background: #E0A82B;
+            color: #1E2A32;
+        }
+
+        .auth-btn.signup:hover {
+            background: #C48A1D;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 18px rgba(224, 168, 43, 0.3);
+        }
+
+        .toggle-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #E9E7E2;
+            color: #4A5A62;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .dark .toggle-btn {
+            background: #2A3A42;
+            color: #BCC9CF;
+        }
+
+        .toggle-btn:hover {
+            background: #E0A82B;
+            color: white;
+        }
+
+        .mobile-menu {
+            background: white;
+            border-top: 1px solid #E9E7E2;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+
+        .dark .mobile-menu {
+            background: #12181C;
+            border-color: #2A3A42;
+        }
+
+        .mobile-menu.open {
+            max-height: calc(100vh - 5rem);
+            overflow-y: auto;
+        }
+
+        .mobile-menu-item {
+            display: block;
+            padding: 1rem 1.5rem;
+            font-weight: 500;
+            border-bottom: 1px solid #E9E7E2;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .dark .mobile-menu-item {
+            border-bottom-color: #2A3A42;
+            color: #D1D9DE;
+        }
+
+        .mobile-dropdown-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s;
+            background: #FEFCF8;
+        }
+
+        .dark .mobile-dropdown-content {
+            background: #1A2429;
+        }
+
+        .mobile-dropdown-content.show {
+            max-height: 300px;
+        }
+
+        .mobile-dropdown-item {
+            display: block;
+            padding: 0.75rem 2.5rem;
+            font-size: 0.9rem;
+        }
+
+        .btn-dent {
+            background: #E0A82B;
+            color: #1E2A32;
+            padding: 0.9rem 2rem;
+            border-radius: 40px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            transition: all 0.3s;
+            font-family: 'Poppins', sans-serif;
+            box-shadow: 0 6px 14px rgba(224, 168, 43, 0.3);
+        }
+
+        .btn-dent:hover {
+            background: #C48A1D;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 24px rgba(224, 168, 43, 0.4);
+        }
+
+        .dent-card {
+            background: white;
+            border-radius: 28px;
+            overflow: hidden;
+            transition: all 0.3s;
+            border: 1px solid rgba(224, 168, 43, 0.2);
+            box-shadow: 0 12px 28px -10px rgba(0, 0, 0, 0.05);
+        }
+
+        .dark .dent-card {
+            background: #1E2A2F;
+            border-color: #3A4A52;
+        }
+
+        .dent-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 24px 40px -12px rgba(224, 168, 43, 0.25);
+        }
+
+        .complexity-level {
+            background: #FEF4E6;
+            border-radius: 20px;
+            transition: all 0.2s;
+            border-left: 6px solid #E0A82B;
+        }
+
+        .dark .complexity-level {
+            background: #1E2A2F;
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(224, 168, 43, 0.12);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #E0A82B;
+        }
+
+        footer {
+            background: white;
+            border-top: 1px solid rgba(224, 168, 43, 0.15);
+        }
+
+        .dark footer {
+            background: #12181C;
+            border-color: #2A3A42;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #E9E7E2;
+            color: #4A5A62;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .social-icon:hover {
+            background: #E0A82B;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .premium-line {
+            width: 70px;
+            height: 2px;
+            background: #E0A82B;
+            margin: 20px 0;
+        }
+
+        /* dashboard preview */
+        .dashboard-card {
+            background: linear-gradient(135deg, #FFF9EF 0%, #FFFFFF 100%);
+            border-radius: 24px;
+        }
+
+        .dark .dashboard-card {
+            background: #1E2A2F;
+        }
+
+        .progress-track {
+            height: 8px;
+            background: #E9E7E2;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            width: 65%;
+            height: 100%;
+            background: #E0A82B;
+            border-radius: 10px;
+        }
+
+        @media (max-width: 1279px) {
+            .desktop-toggle-group {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-[#F8F6F2] dark:bg-dark-bg">
+    <!-- HEADER - DentCraft Gold & Charcoal Edition -->
+    <nav
+        class="fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-dark-bg/95 backdrop-blur-md border-b border-[#E9E7E2] dark:border-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="flex items-center justify-between h-20">
+                <a href="index.html" class="flex items-center space-x-3 group">
+                    <div
+                        class="w-10 h-10 bg-dent-gold rounded-xl flex items-center justify-center transform group-hover:rotate-12 transition duration-300 shadow-md">
+                        <i class="fas fa-car-side text-white text-xl"></i>
+                    </div>
+                    <div dir="ltr" class="flex">
+                        <span
+                            class="text-2xl font-display font-bold tracking-tight text-dent-charcoal dark:text-white">DENT</span>
+                        <span
+                            class="text-2xl font-display font-bold tracking-tight text-dent-gold dark:text-dent-gold-bright">CRAFT</span>
+                    </div>
+                </a>
+                <div class="hidden xl:flex items-center">
+                    <div class="flex items-center gap-8">
+                        <div class="dropdown">
+                            <button class="nav-item active flex items-center">Home <i
+                                    class="fas fa-chevron-down ms-2 text-xs"></i></button>
+                            <div class="dropdown-menu">
+                                <a href="index.html" class="dropdown-item"
+                                    style="background: rgba(224,168,43,0.1); color:#E0A82B; border-left:3px solid #E0A82B;">
+                                    Home 1</a>
+                                <a href="home2.html" class="dropdown-item"> Home 2</a>
+                            </div>
+                        </div>
+                        <a href="about.html" class="nav-item">About</a>
+                        <a href="service.html" class="nav-item">Services</a>
+                        <a href="price.html" class="nav-item">Pricing</a>
+                        <a href="gallery.html" class="nav-item">Gallery</a>
+                        <div class="dropdown">
+                            <button class="nav-item flex items-center">Dashboard <i
+                                    class="fas fa-chevron-down ms-2 text-xs"></i></button>
+                            <div class="dropdown-menu">
+                                <a href="client.html" class="dropdown-item"><i class="fas fa-user"></i> Client</a>
+                                <a href="admin.html" class="dropdown-item"><i class="fas fa-user-shield"></i> Admin</a>
+                            </div>
+                        </div>
+                        <a href="contact.html" class="nav-item">Contact</a>
+                    </div>
+                    <div class="flex items-center gap-3 ms-8">
+                        <a href="login.html" class="auth-btn login">Login</a>
+                        <a href="signup.html" class="auth-btn signup">Sign Up</a>
+                    </div>
+                    <div class="flex gap-2 ms-4 desktop-toggle-group">
+                        <button id="theme-toggle" class="toggle-btn"><i class="fas fa-moon"></i><i
+                                class="fas fa-sun hidden"></i></button>
+                        <button id="rtl-toggle" class="toggle-btn">⇄</button>
+                    </div>
+                </div>
+                <button id="mobile-toggle" class="xl:hidden text-dent-charcoal dark:text-gray-300 p-2"><i
+                        class="fas fa-bars text-xl"></i></button>
+            </div>
+            <div id="mobile-menu" class="mobile-menu xl:hidden">
+                <div class="mobile-dropdown"><button
+                        class="mobile-dropdown-btn flex justify-between w-full mobile-menu-item text-dent-gold bg-dent-gold/10">Home
+                        <i class="fas fa-chevron-down"></i></button>
+                    <div class="mobile-dropdown-content"><a href="index.html" class="mobile-dropdown-item">Home 1</a><a
+                            href="home2.html" class="mobile-dropdown-item">Home 2</a></div>
+                </div>
+                <a href="about.html" class="mobile-menu-item">About</a><a href="service.html"
+                    class="mobile-menu-item">Services</a><a href="price.html" class="mobile-menu-item">Pricing</a><a
+                    href="gallery.html" class="mobile-menu-item">Gallery</a>
+                <div class="mobile-dropdown"><button
+                        class="mobile-dropdown-btn flex justify-between w-full mobile-menu-item">Dashboard <i
+                            class="fas fa-chevron-down"></i></button>
+                    <div class="mobile-dropdown-content"><a href="client.html" class="mobile-dropdown-item"><i
+                                class="fas fa-user me-2 text-dent-gold"></i> Client</a><a href="admin.html"
+                            class="mobile-dropdown-item"><i class="fas fa-user-shield me-2 text-dent-gold"></i>
+                            Admin</a></div>
+                </div>
+                <a href="contact.html" class="mobile-menu-item">Contact</a>
+                <div class="flex flex-col sm:flex-row gap-3 p-6"><a href="login.html"
+                        class="mobile-auth-btn login flex-1 text-center">Login</a><a href="signup.html"
+                        class="mobile-auth-btn signup flex-1 text-center">Start Claim</a></div>
+                <div class="flex justify-center gap-3 p-6 border-t border-gray-200 dark:border-gray-800"><button
+                        id="theme-toggle-mobile" class="toggle-btn"><i class="fas fa-moon"></i><i
+                            class="fas fa-sun hidden"></i></button><button id="rtl-toggle-mobile"
+                        class="toggle-btn">⇄</button></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION: mobile PDR with glossy feel -->
+    <section
+        class="pt-36 pb-20 md:pt-44 md:pb-28 bg-gradient-to-br from-[#F8F6F2] to-[#FFF9EF] dark:from-dark-bg dark:to-[#1A2429] overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="animate-slide-up">
+                    <div
+                        class="inline-flex items-center gap-2 bg-white dark:bg-dark-card/60 px-4 py-2 rounded-full shadow-sm mb-6 border border-dent-gold/30">
+                        <i class="fas fa-tools text-dent-gold"></i><span class="text-sm font-bold">PAINTLESS DENT REPAIR
+                            • MOBILE SERVICE</span>
+                    </div>
+                    <h1
+                        class="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-5 text-dent-charcoal dark:text-white">
+                        Flawless <span class="text-dent-gold">Dent Removal</span> – Restored To Factory Finish</h1>
+                    <div class="premium-line"></div>
+                    <p class="text-lg md:text-xl text-dent-charcoal/80 dark:text-gray-300 max-w-lg mb-8">Door dings,
+                        hail damage, creases — we come to you. Insurance claim support + real-time repair tracking
+                        dashboard.</p>
+                    <div class="flex flex-wrap gap-4 mb-10"><button class="btn-dent"><i
+                                class="fas fa-calendar-check"></i> Free Estimate</button><button
+                            class="bg-transparent border-2 border-dent-gold text-dent-gold dark:text-dent-gold-bright px-7 py-3 rounded-full font-bold hover:bg-dent-gold/10 transition"><i
+                                class="fas fa-mobile-alt"></i> Get Quote</button></div>
+                    <div class="flex flex-wrap gap-6"><span><i class="fas fa-check-circle text-dent-gold mr-1"></i>
+                            Lifetime Warranty</span><span><i class="fas fa-check-circle text-dent-gold mr-1"></i> 5-Star
+                            Rated</span><span><i class="fas fa-check-circle text-dent-gold mr-1"></i> 100% OEM
+                            Finish</span></div>
+                </div>
+                <div class="relative">
+                    <div class="absolute -top-10 -left-10 w-40 h-40 bg-dent-gold/20 rounded-full blur-3xl"></div><img
+                        src="/assest/dodge.jpg"
+                        alt="Mobile dent repair before after"
+                        class="rounded-3xl shadow-2xl w-full border-4 border-white dark:border-dark-card">
+                    <div
+                        class="absolute bottom-6 right-6 bg-white/95 dark:bg-dark-card px-4 py-2 rounded-full shadow-lg">
+                        <i class="fas fa-star text-dent-gold mr-1"></i><span class="font-bold">Same-day service</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DENT COMPLEXITY GUIDE (visual guide) -->
+    <section class="py-16 bg-white dark:bg-dark-card">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12"><span class="text-dent-gold font-bold text-sm tracking-wider uppercase">DENT
+                    COMPLEXITY GUIDE</span>
+                <h2 class="text-3xl md:text-4xl font-display font-bold mt-3">Understand Your Dent<span
+                        class="text-dent-gold">, Estimate Instantly</span></h2>
+                <p class="max-w-xl mx-auto mt-2 opacity-80">From shallow dimples to sharp creases — we handle it all</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="complexity-level p-6 text-center">
+                    <div class="service-icon mx-auto mb-4 bg-dent-gold/10"><i class="fas fa-golf-ball"></i></div>
+                    <h3 class="text-xl font-bold">Level 1: Minor Ding</h3>
+                    <p class="text-sm mt-2">Small door dings, shallow dents without paint damage. 30-45 min repair.</p>
+                    <span class="inline-block mt-3 text-dent-gold font-bold">$75 - $150</span>
+                </div>
+                <div class="complexity-level p-6 text-center border-l-4 border-dent-gold">
+                    <div class="service-icon mx-auto mb-4 bg-dent-gold/20"><i class="fas fa-bezier-curve"></i></div>
+                    <h3 class="text-xl font-bold">Level 2: Moderate Crease</h3>
+                    <p class="text-sm mt-2">Elongated dents, hail damage (softball size). Requires advanced tools.</p>
+                    <span class="inline-block mt-3 text-dent-gold font-bold">$150 - $350</span>
+                </div>
+                <div class="complexity-level p-6 text-center">
+                    <div class="service-icon mx-auto mb-4 bg-dent-gold/15"><i class="fas fa-crater"></i></div>
+                    <h3 class="text-xl font-bold">Level 3: Sharp / Edge Dent</h3>
+                    <p class="text-sm mt-2">Deep crease on body line, edge damage. Specialized glue-pulling tech.</p>
+                    <span class="inline-block mt-3 text-dent-gold font-bold">$350 - $750+</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BEFORE / AFTER GALLERY glossy repair showcase -->
+    <section class="py-20 bg-[#F8F6F2] dark:bg-dark-bg">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12"><span class="text-dent-gold font-bold tracking-wider uppercase">REAL
+                    RESULTS</span>
+                <h2 class="text-3xl md:text-4xl font-display font-bold mt-2">Before & After<span class="text-dent-gold">
+                        PDR Transformations</span></h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="dent-card group">
+                    <div class="relative aspect-[4/3] overflow-hidden"><img
+                            src="/assest/door.jpg"
+                            class="w-full h-full object-cover transition group-hover:scale-105">
+                        <div class="absolute top-3 left-3 badge bg-dent-gold text-white px-3 py-1 rounded-full text-xs">
+                            BEFORE</div>
+                        <div class="absolute bottom-3 left-3 bg-black/60 px-2 py-1 rounded text-xs text-white">🔍 Hail
+                            damage</div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-bold">Door Ding Repair</h3>
+                        <p class="text-sm opacity-75">Complete removal, no repaint — 45min mobile service</p>
+                    </div>
+                </div>
+                <div class="dent-card group">
+                    <div class="relative aspect-[4/3] overflow-hidden"><img
+                            src="/assest/hail.jpg"
+                            class="w-full h-full object-cover transition group-hover:scale-105">
+                        <div class="absolute top-3 left-3 badge bg-dent-gold text-white px-3 py-1 rounded-full text-xs">
+                            BEFORE</div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-bold">Hail Storm Recovery</h3>
+                        <p class="text-sm opacity-75">23 dents removed, insurance claim approved — tracked via dashboard
+                        </p>
+                    </div>
+                </div>
+                <div class="dent-card group">
+                    <div class="relative aspect-[4/3] overflow-hidden"><img
+                            src="/assest/car1.jpg"
+                            class="w-full h-full object-cover transition group-hover:scale-105">
+                        <div class="absolute top-3 left-3 badge bg-dent-gold text-white px-3 py-1 rounded-full text-xs">
+                            AFTER</div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-bold">Creaseline Restoration</h3>
+                        <p class="text-sm opacity-75">Sharp bodyline dent perfectly restored to OEM.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-10"><button
+                    class="border border-dent-gold text-dent-gold px-8 py-3 rounded-full font-semibold hover:bg-dent-gold/10 transition"><i
+                        class="fas fa-images mr-2"></i> View Full Gallery</button></div>
+        </div>
+    </section>
+
+    <!-- CUSTOMER DASHBOARD PREVIEW : claim + repair tracking -->
+    <section class="py-20 bg-white dark:bg-dark-card">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div><span class="text-dent-gold font-bold text-sm tracking-wider uppercase">DASHBOARD ACCESS</span>
+                    <h2 class="text-3xl md:text-4xl font-display font-bold mt-3 mb-5">Track Repairs &<span
+                            class="text-dent-gold"> Insurance Claims</span> in Real Time</h2>
+                    <p class="text-lg opacity-80 mb-6">Log into your customer portal — upload damage photos, check
+                        repair status, message technician, and download final invoice.</p>
+                    <ul class="space-y-4">
+                        <li class="flex gap-3"><i class="fas fa-check-circle text-dent-gold text-xl"></i><span>Live
+                                repair progress % & estimated completion</span></li>
+                        <li class="flex gap-3"><i class="fas fa-file-alt text-dent-gold text-xl"></i><span>Insurance
+                                paperwork & claim tracking number</span></li>
+                        <li class="flex gap-3"><i class="fas fa-video text-dent-gold text-xl"></i><span>Photo
+                                documentation before/during/after</span></li>
+                    </ul><button class="btn-dent mt-8"><i class="fas fa-tachometer-alt"></i> Access Your
+                        Dashboard</button>
+                </div>
+                <div class="dashboard-card p-6 shadow-xl border border-dent-gold/30">
+                    <div class="flex justify-between items-center border-b pb-4">
+                        <div>
+                            <h3 class="font-bold text-xl">Repair ID: #PDR-2409</h3>
+                            <p class="text-sm">2023 Tesla Model 3 · Hail Damage</p>
+                        </div>
+                        <div class="bg-dent-gold/20 px-3 py-1 rounded-full text-dent-gold font-bold text-sm">IN PROGRESS
+                        </div>
+                    </div>
+                    <div class="mt-5 space-y-4">
+                        <div>
+                            <div class="flex justify-between text-sm"><span>Repair Completion</span><span>65%</span>
+                            </div>
+                            <div class="progress-track mt-1">
+                                <div class="progress-fill" style="width:65%"></div>
+                            </div>
+                        </div>
+                        <div class="flex justify-between"><span><i class="far fa-calendar-alt"></i> Estimated
+                                finish</span><span class="font-semibold">May 22, 2026</span></div>
+                        <div class="flex justify-between"><span><i class="fas fa-file-signature"></i> Claim
+                                status</span><span class="text-green-600 dark:text-green-400">Approved - Deductible
+                                $250</span></div>
+                        <div class="bg-[#FEF4E6] dark:bg-dark-surface p-4 rounded-xl mt-2"><i
+                                class="fas fa-map-marker-alt text-dent-gold mr-2"></i> Technician en route:
+                            <strong>Mobile Unit #3</strong> – ETA 2:30 PM
+                        </div>
+                    </div><button
+                        class="w-full mt-6 bg-dent-gold/10 text-dent-gold py-2 rounded-full font-medium hover:bg-dent-gold/20 transition"><i
+                            class="fas fa-comment-dots"></i> Message your PDR tech</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY PDR + insurance benefits -->
+    <section class="py-16 bg-gradient-to-r from-dent-gold/5 to-transparent dark:from-dent-gold/10">
+        <div class="container mx-auto px-6 text-center"><span
+                class="text-dent-gold font-bold tracking-wider uppercase">WHY DENTCRAFT</span>
+            <h2 class="text-4xl md:text-5xl font-display font-bold mt-4">The PDR Advantage</h2>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-12 mt-16">
+                <div><i class="fas fa-paint-roller text-6xl text-dent-gold mb-6"></i>
+                    <h4 class="text-2xl font-bold mb-3">No Paint, No Fillers</h4>
+                    <p class="text-lg opacity-80">Preserve original factory finish</p>
+                </div>
+                <div><i class="fas fa-clock text-6xl text-dent-gold mb-6"></i>
+                    <h4 class="text-2xl font-bold mb-3">80% Faster</h4>
+                    <p class="text-lg opacity-80">Most repairs under 2 hours</p>
+                </div>
+                <div><i class="fas fa-file-invoice-dollar text-6xl text-dent-gold mb-6"></i>
+                    <h4 class="text-2xl font-bold mb-3">Insurance Helpdesk</h4>
+                    <p class="text-lg opacity-80">Direct claim assistance & documentation</p>
+                </div>
+                <div><i class="fas fa-mobile-alt text-6xl text-dent-gold mb-6"></i>
+                    <h4 class="text-2xl font-bold mb-3">We Come to You</h4>
+                    <p class="text-lg opacity-80">Home, office or anywhere</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA quote -->
+    <section class="py-20 bg-dent-gold text-dent-charcoal dark:bg-dent-gold-dark dark:text-white">
+        <div class="container mx-auto px-6 text-center"><i class="fas fa-car-crash text-5xl mb-4 opacity-80"></i>
+            <h2 class="text-4xl md:text-5xl font-display font-bold mb-4">Don't Let Dents Devalue Your Ride</h2>
+            <p class="text-xl max-w-2xl mx-auto mb-8 font-light">Get a free mobile estimate today — certified PDR
+                specialists.</p>
+            <div class="flex flex-wrap justify-center gap-4"><button
+                    class="bg-white text-dent-gold px-10 py-4 rounded-full font-extrabold shadow-lg hover:shadow-xl transition"><i
+                        class="fas fa-camera"></i> Send Damage Photo</button><button
+                    class="border-2 border-white text-white px-10 py-4 rounded-full font-bold hover:bg-white/10 transition"><i
+                        class="fas fa-phone-alt"></i> Call (888) 337-8368</button></div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-16">
+        <div class="container mx-auto px-6 text-center md:text-start">
+            <div class="grid md:grid-cols-4 gap-10">
+                <div>
+                    <div class="flex items-center justify-center md:justify-start gap-3 mb-5">
+                        <div class="w-10 h-10 bg-dent-gold rounded-xl flex items-center justify-center"><i
+                                class="fas fa-car-side text-white"></i></div><span dir="ltr"
+                            class="text-2xl font-display font-bold inline-flex">DENT<span
+                                class="text-dent-gold">CRAFT</span></span>
+                    </div>
+                    <p class="text-[15px] opacity-80">Mobile paintless dent repair • PDR specialists since 2015. 12k+
+                        vehicles restored.</p>
+                    <div class="flex justify-center md:justify-start gap-4 mt-6"><a href="#" class="social-icon"><i
+                                class="fab fa-instagram"></i></a><a href="#" class="social-icon"><i
+                                class="fab fa-facebook-f"></i></a><a href="#" class="social-icon"><i
+                                class="fab fa-x-twitter"></i></a></div>
+                </div>
+                <div>
+                    <h3 class="font-display text-xl font-bold mb-5">Repair Guide</h3>
+                    <ul class="space-y-3 text-[15px]">
+                        <li><a href="#" class="hover:text-dent-gold">Dent Complexity Checker</a></li>
+                        <li><a href="#" class="hover:text-dent-gold">Hail Damage Repair</a></li>
+                        <li><a href="#" class="hover:text-dent-gold">PDR vs Traditional Body Shop</a></li>
+                        <li><a href="#" class="hover:text-dent-gold">Insurance Claim Steps</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-display text-xl font-bold mb-5">Dashboard</h3>
+                    <ul class="space-y-3 text-[15px]">
+                        <li><a href="#" class="hover:text-dent-gold">Track My Repair</a></li>
+                        <li><a href="#" class="hover:text-dent-gold">Claim Status</a></li>
+                        <li><a href="#" class="hover:text-dent-gold">Upload Photos</a></li>
+                        <li><a href="#" class="hover:text-dent-gold">Invoice History</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-display text-xl font-bold mb-5">Contact</h3>
+                    <ul class="space-y-3 text-[15px]">
+                        <li class="flex justify-center md:justify-start gap-2"><i
+                                class="fas fa-map-marker-alt text-dent-gold mt-1"></i> <span>Serving nationwide / mobile
+                                fleet</span></li>
+                        <li class="flex justify-center md:justify-start gap-2"><i
+                                class="fas fa-envelope text-dent-gold mt-1"></i> <span
+                                dir="ltr">repair@dentcraft.com</span></li>
+                        <li class="flex justify-center md:justify-start gap-2"><i
+                                class="fas fa-clock mt-1 text-dent-gold"></i> <span>Mon–Sat: 8AM – 8PM (on-site)</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-dent-gold/20 mt-12 pt-8 text-center text-[15px] opacity-70">© 2026 DENTCRAFT —
+                Paintless Dent Repair. Lifetime warranty & insurance concierge.</div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const themeToggle = document.getElementById('theme-toggle'), mobileTheme = document.getElementById('theme-toggle-mobile');
+            function setTheme() { const isDark = document.documentElement.classList.toggle('dark'); const icons = [[themeToggle, mobileTheme]]; icons.forEach(btn => { if (btn[0]) { const moon = btn[0].querySelector('.fa-moon'), sun = btn[0].querySelector('.fa-sun'); if (isDark) { moon?.classList.add('hidden'); sun?.classList.remove('hidden'); btn[0].classList.add('active'); } else { moon?.classList.remove('hidden'); sun?.classList.add('hidden'); btn[0].classList.remove('active'); } } }); localStorage.setItem('theme', isDark ? 'dark' : 'light'); }
+            if (themeToggle) themeToggle.addEventListener('click', setTheme);
+            if (mobileTheme) mobileTheme.addEventListener('click', setTheme);
+            if (localStorage.getItem('theme') === 'dark') document.documentElement.classList.add('dark');
+            const rtl = document.getElementById('rtl-toggle'), rtlMob = document.getElementById('rtl-toggle-mobile');
+            function toggleRTL() { if (document.documentElement.dir === 'rtl') { document.documentElement.dir = 'ltr'; localStorage.setItem('dir', 'ltr'); } else { document.documentElement.dir = 'rtl'; localStorage.setItem('dir', 'rtl'); } }
+            rtl?.addEventListener('click', toggleRTL); rtlMob?.addEventListener('click', toggleRTL);
+            if (localStorage.getItem('dir') === 'rtl') document.documentElement.dir = 'rtl';
+            const mobToggle = document.getElementById('mobile-toggle'), mobMenu = document.getElementById('mobile-menu');
+            if (mobToggle) { mobToggle.addEventListener('click', () => { mobMenu.classList.toggle('open'); const icon = mobToggle.querySelector('i'); if (mobMenu.classList.contains('open')) { icon.classList.remove('fa-bars'); icon.classList.add('fa-times'); } else { icon.classList.remove('fa-times'); icon.classList.add('fa-bars'); } }); }
+            document.querySelectorAll('.mobile-dropdown-btn').forEach(btn => { btn.addEventListener('click', (e) => { const content = btn.closest('.mobile-dropdown')?.querySelector('.mobile-dropdown-content'); if (content) { content.classList.toggle('show'); const icon = btn.querySelector('.fa-chevron-down'); if (icon) icon.style.transform = content.classList.contains('show') ? 'rotate(180deg)' : 'rotate(0deg)'; } }); });
+        });
+    </script>
+</body>
+
+</html>

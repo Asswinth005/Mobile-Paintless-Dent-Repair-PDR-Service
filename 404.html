@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found | DentCraft | Premium PDR Services</title>
+    <!-- Custom Favicon - DentCraft Gold -->
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%23E0A82B' d='M464 128H336v-32c0-17.6-14.4-32-32-32h-96c-17.6 0-32 14.4-32 32v32H48c-26.5 0-48 21.5-48 48v224c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V176c0-26.5-21.5-48-48-48zM288 400h-64v-48c0-8.8 7.2-16 16-16s16 7.2 16 16v48zm80-240v32H144v-32h224z'/%3E%3C/svg%3E">
+    <meta name="description"
+        content="Oops! The page you're looking for has a dent. Let's get you back on track with DentCraft's premium paintless dent repair services.">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'dent-gold': '#E0A82B',
+                        'dent-gold-dark': '#C48A1D',
+                        'dent-gold-bright': '#F5BC3C',
+                        'dent-charcoal': '#1E2A32',
+                        'dent-slate': '#2E3B44',
+                        'dent-light': '#F8F6F2',
+                        'dent-card': '#FFFFFF',
+                        'dark-bg': '#12181C',
+                        'dark-card': '#1E2A2F',
+                        'dark-surface': '#2A3A42',
+                    },
+                    fontFamily: {
+                        'display': ['Outfit', 'system-ui', 'sans-serif'],
+                        'body': ['Roboto', 'system-ui', 'sans-serif'],
+                        'alt': ['Poppins', 'system-ui', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'dent-pattern': "radial-gradient(circle at 20% 30%, rgba(224,168,43,0.04) 0%, transparent 60%)",
+                    },
+                    animation: {
+                        'spin-slow': 'spinSlow 12s linear infinite',
+                        'dent-pulse': 'dentPulse 2s ease-in-out infinite',
+                        'float-gentle': 'floatGentle 4s ease-in-out infinite',
+                        'fade-in-up': 'fadeInUp 0.5s ease-out',
+                        'pulse-gentle': 'pulseGentle 2s ease-in-out infinite',
+                        'shimmer': 'shimmer 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        spinSlow: {
+                            '0%': { transform: 'rotate(0deg)' },
+                            '100%': { transform: 'rotate(360deg)' },
+                        },
+                        dentPulse: {
+                            '0%,100%': { opacity: '0.6', transform: 'scale(1)' },
+                            '50%': { opacity: '1', transform: 'scale(1.05)' },
+                        },
+                        floatGentle: {
+                            '0%,100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-8px)' },
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        pulseGentle: {
+                            '0%,100%': { opacity: '1' },
+                            '50%': { opacity: '0.7' },
+                        },
+                        shimmer: {
+                            '0%,100%': { textShadow: '0 0 0px rgba(224,168,43,0)' },
+                            '50%': { textShadow: '0 0 20px rgba(224,168,43,0.5)' },
+                        },
+                    },
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Roboto:wght@300;400;500;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        body {
+            background-color: #F8F6F2;
+            font-family: 'Roboto', system-ui, sans-serif;
+            color: #1E2A32;
+            line-height: 1.6;
+        }
+
+        .dark body {
+            background-color: #12181C;
+            color: #E8EDEE;
+        }
+
+        /* Toggle Buttons */
+        .toggle-btn {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            background: white;
+            color: #1E2A32;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 1px solid rgba(224,168,43,0.3);
+            font-size: 1.1rem;
+        }
+
+        .dark .toggle-btn {
+            background: #1E2A2F;
+            color: #E0A82B;
+            border-color: rgba(224,168,43,0.4);
+        }
+
+        .toggle-btn:hover {
+            background: #E0A82B;
+            color: #1E2A32;
+        }
+
+        .dark .toggle-btn:hover {
+            background: #E0A82B;
+            color: #12181C;
+        }
+
+        .toggle-btn.active {
+            background: #E0A82B;
+            color: #1E2A32;
+        }
+
+        .dark .toggle-btn.active {
+            background: #F5BC3C;
+            color: #12181C;
+        }
+
+        /* Button styles */
+        .btn-primary {
+            background: #E0A82B;
+            color: #1E2A32;
+            padding: 0.85rem 2rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 12px rgba(224,168,43,0.35);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .btn-primary:hover {
+            background: #C48A1D;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(224,168,43,0.45);
+        }
+
+        .dark .btn-primary {
+            background: #F5BC3C;
+            color: #12181C;
+        }
+
+        .dark .btn-primary:hover {
+            background: #E0A82B;
+        }
+
+        .btn-secondary {
+            border: 1.5px solid #E0A82B;
+            background: transparent;
+            color: #E0A82B;
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .dark .btn-secondary {
+            border-color: #F5BC3C;
+            color: #F5BC3C;
+        }
+
+        .btn-secondary:hover {
+            background: #E0A82B;
+            color: #1E2A32;
+            transform: translateY(-2px);
+        }
+
+        .dark .btn-secondary:hover {
+            background: #F5BC3C;
+            color: #12181C;
+        }
+
+        /* Accent line */
+        .gold-line {
+            width: 70px;
+            height: 3px;
+            background: #E0A82B;
+            margin: 1rem auto;
+            border-radius: 3px;
+        }
+
+        .dark .gold-line {
+            background: #F5BC3C;
+        }
+
+        /* Animated dent element */
+        .floating-dent {
+            animation: floatGentle 4s ease-in-out infinite;
+        }
+
+        /* Dent pulse animation */
+        .dent-animation i {
+            animation: dentPulse 2s ease-in-out infinite;
+        }
+
+        /* RTL Fixes */
+        [dir="rtl"] .space-x-3> :not([hidden])~ :not([hidden]) {
+            --tw-space-x-reverse: 1;
+            margin-right: calc(0.75rem * var(--tw-space-x-reverse));
+            margin-left: calc(0.75rem * calc(1 - var(--tw-space-x-reverse)));
+        }
+
+        [dir="rtl"] .ml-8 {
+            margin-left: 0;
+            margin-right: 2rem;
+        }
+
+        [dir="rtl"] .mr-2 {
+            margin-right: 0;
+            margin-left: 0.5rem;
+        }
+
+        [dir="rtl"] .gold-line {
+            margin: 1rem auto;
+        }
+
+        /* Shimmer text */
+        .shimmer-text {
+            animation: shimmer 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+
+<body class="dent-pattern">
+
+    <!-- ========== HEADER ========== -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-dark-bg/95 backdrop-blur-md border-b border-dent-gold/20 shadow-sm">
+        <div class="container mx-auto px-6">
+            <div class="flex items-center justify-between h-20 md:h-24 py-3 md:py-0">
+                <!-- Logo with dent icon -->
+                <a href="index.html" class="flex items-center gap-2 md:gap-3 group shrink-0">
+                    <div class="w-9 h-9 md:w-10 md:h-10 bg-dent-gold rounded-xl flex items-center justify-center shadow-md group-hover:scale-105 transition duration-300">
+                        <i class="fas fa-car-side text-dent-charcoal text-base md:text-lg"></i>
+                    </div>
+                    <div>
+                        <span class="text-lg md:text-2xl font-display font-extrabold tracking-tight text-dent-charcoal dark:text-white">DENT<span class="text-dent-gold dark:text-dent-gold-bright">CRAFT</span></span>
+                    </div>
+                </a>
+
+                <!-- Toggle Buttons Only -->
+                <div class="flex items-center gap-3">
+                    <button id="theme-toggle" class="toggle-btn" title="Dark / Light">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:inline"></i>
+                    </button>
+                    <button id="rtl-toggle" class="toggle-btn" title="RTL / LTR">
+                        ⇄
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========== 404 MAIN CONTENT ========== -->
+    <div class="min-h-screen flex items-center justify-center pt-32 pb-20 px-6">
+        <div class="max-w-2xl mx-auto text-center animate-fade-in-up">
+            <!-- Animated Dent/Shield Icon -->
+            <div class="mb-6 floating-dent">
+                <div class="w-28 h-28 md:w-36 md:h-36 rounded-full border-8 border-dent-gold/20 flex items-center justify-center mx-auto relative dent-animation">
+                    <i class="fas fa-car-side text-dent-gold dark:text-dent-gold-bright text-5xl md:text-6xl animate-pulse-gentle"></i>
+                    <div class="absolute inset-0 rounded-full border-4 border-dent-gold/30 animate-ping opacity-75"></div>
+                    <i class="fas fa-circle-exclamation text-dent-gold-dark dark:text-dent-gold absolute -top-2 -right-2 text-xl animate-pulse"></i>
+                </div>
+            </div>
+
+            <!-- Large 404 Number -->
+            <div class="mb-4">
+                <span class="text-[120px] md:text-[180px] font-display font-extrabold text-dent-gold dark:text-dent-gold-bright leading-none tracking-tighter drop-shadow-lg shimmer-text">404</span>
+            </div>
+
+            <!-- Title -->
+            <h1 class="text-2xl md:text-3xl font-display font-bold text-dent-charcoal dark:text-white mb-3">
+                Oops! That Page Has a Dent
+            </h1>
+
+            <!-- Divider -->
+            <div class="gold-line"></div>
+
+            <!-- Message -->
+            <p class="text-base md:text-lg text-dent-charcoal/70 dark:text-gray-300 mb-8 leading-relaxed max-w-md mx-auto">
+                The page you're looking for has been dinged or moved. Don't worry — our PDR specialists will get you back on track.
+            </p>
+
+            <!-- Action Buttons -->
+            <div class="flex flex-wrap gap-4 justify-center mb-12">
+                <a href="index.html" class="btn-primary">
+                    <i class="fas fa-home mr-1"></i> Back to Home
+                </a>
+                <a href="service.html" class="btn-secondary">
+                    <i class="fas fa-wrench mr-1"></i> View PDR Services
+                </a>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="border-t border-dent-gold/20 pt-8">
+                <p class="text-sm text-dent-charcoal/60 dark:text-gray-400 mb-4">
+                    <i class="fas fa-road text-dent-gold mr-2"></i> Quick Navigation — Get Back on Track
+                </p>
+                <div class="flex flex-wrap gap-3 justify-center">
+                    <a href="about.html" class="text-sm font-medium text-dent-charcoal/70 dark:text-gray-300 hover:text-dent-gold dark:hover:text-dent-gold-bright transition">About</a>
+                    <span class="text-dent-gold/30">•</span>
+                    <a href="service.html" class="text-sm font-medium text-dent-charcoal/70 dark:text-gray-300 hover:text-dent-gold dark:hover:text-dent-gold-bright transition">PDR Services</a>
+                    <span class="text-dent-gold/30">•</span>
+                    <a href="price.html" class="text-sm font-medium text-dent-charcoal/70 dark:text-gray-300 hover:text-dent-gold dark:hover:text-dent-gold-bright transition">Pricing</a>
+                    <span class="text-dent-gold/30">•</span>
+                    <a href="gallery.html" class="text-sm font-medium text-dent-charcoal/70 dark:text-gray-300 hover:text-dent-gold dark:hover:text-dent-gold-bright transition">Before & After</a>
+                    <span class="text-dent-gold/30">•</span>
+                    <a href="client.html" class="text-sm font-medium text-dent-charcoal/70 dark:text-gray-300 hover:text-dent-gold dark:hover:text-dent-gold-bright transition">Dashboard</a>
+                    <span class="text-dent-gold/30">•</span>
+                    <a href="contact.html" class="text-sm font-medium text-dent-charcoal/70 dark:text-gray-300 hover:text-dent-gold dark:hover:text-dent-gold-bright transition">Contact</a>
+                </div>
+            </div>
+
+            <!-- Need Help Note -->
+            <div class="mt-8 text-xs text-dent-charcoal/50 dark:text-gray-500">
+                <i class="fas fa-phone-alt mr-1 text-dent-gold"></i> Need immediate PDR assistance? Call us at <a href="tel:8883378368" class="text-dent-gold dark:text-dent-gold-bright hover:underline">(888) 337-8368</a>
+            </div>
+
+            <!-- Fun Fact Note -->
+            <div class="mt-4 text-xs text-dent-charcoal/40 dark:text-gray-600">
+                <i class="fas fa-smile-wink mr-1"></i> Pro tip: Most dents can be repaired in under an hour with our mobile PDR service.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Theme Toggle
+            const themeBtn = document.getElementById('theme-toggle');
+
+            const updateThemeUI = (isDark) => {
+                if (themeBtn) {
+                    const moon = themeBtn.querySelector('.fa-moon');
+                    const sun = themeBtn.querySelector('.fa-sun');
+                    if (moon && sun) {
+                        if (isDark) { moon.classList.add('hidden'); sun.classList.remove('hidden'); }
+                        else { moon.classList.remove('hidden'); sun.classList.add('hidden'); }
+                    }
+                    themeBtn.classList.toggle('active', isDark);
+                }
+            };
+
+            const toggleTheme = () => {
+                document.documentElement.classList.toggle('dark');
+                const isDark = document.documentElement.classList.contains('dark');
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+                updateThemeUI(isDark);
+            };
+
+            if (themeBtn) themeBtn.addEventListener('click', toggleTheme);
+
+            // Check saved theme
+            if (localStorage.getItem('theme') === 'dark') {
+                document.documentElement.classList.add('dark');
+                updateThemeUI(true);
+            } else if (localStorage.getItem('theme') === 'light') {
+                document.documentElement.classList.remove('dark');
+                updateThemeUI(false);
+            } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.documentElement.classList.add('dark');
+                updateThemeUI(true);
+            }
+
+            // RTL Toggle
+            const rtlBtn = document.getElementById('rtl-toggle');
+
+            const updateRtlUI = (isRtl) => {
+                const dir = isRtl ? 'rtl' : 'ltr';
+                document.documentElement.dir = dir;
+                document.documentElement.lang = isRtl ? 'ar' : 'en';
+                if (rtlBtn) rtlBtn.classList.toggle('active', isRtl);
+            };
+
+            const toggleRtl = () => {
+                const isRtl = document.documentElement.dir !== 'rtl';
+                localStorage.setItem('dir', isRtl ? 'rtl' : 'ltr');
+                updateRtlUI(isRtl);
+            };
+
+            if (rtlBtn) rtlBtn.addEventListener('click', toggleRtl);
+
+            // Check saved RTL direction
+            if (localStorage.getItem('dir') === 'rtl') {
+                updateRtlUI(true);
+            } else {
+                updateRtlUI(false);
+            }
+
+            // Add active class to theme button based on actual state
+            if (document.documentElement.classList.contains('dark')) {
+                themeBtn?.classList.add('active');
+                const moon = themeBtn?.querySelector('.fa-moon');
+                const sun = themeBtn?.querySelector('.fa-sun');
+                if (moon && sun) {
+                    moon.classList.add('hidden');
+                    sun.classList.remove('hidden');
+                }
+            } else {
+                themeBtn?.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+
+</html>

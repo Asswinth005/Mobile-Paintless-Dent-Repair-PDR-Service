@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>DentCraft Portal | PDR Driver Dashboard</title>
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%23E0A82B' d='M464 128H336v-32c0-17.6-14.4-32-32-32h-96c-17.6 0-32 14.4-32 32v32H48c-26.5 0-48 21.5-48 48v224c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V176c0-26.5-21.5-48-48-48zM288 400h-64v-48c0-8.8 7.2-16 16-16s16 7.2 16 16v48zm80-240v32H144v-32h224z'/%3E%3C/svg%3E">
+    <meta name="description"
+        content="DentCraft Driver Portal - Submit dent photos, get instant PDR estimates, schedule mobile service, track technician, access warranty certificates.">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'dent-gold': '#E0A82B',
+                        'dent-gold-dark': '#C48A1D',
+                        'dent-gold-bright': '#F5BC3C',
+                        'dent-charcoal': '#1E2A32',
+                        'dent-slate': '#2E3B44',
+                        'dent-light': '#F8F6F2',
+                        'dent-card': '#FFFFFF',
+                        'dark-bg': '#12181C',
+                        'dark-card': '#1E2A2F',
+                        'dark-surface': '#2A3A42',
+                        'dent-green': '#2E7D32',
+                        'dent-warning': '#FFB74D',
+                    },
+                    fontFamily: {
+                        'sans': ['Roboto', 'system-ui', 'sans-serif'],
+                        'display': ['Outfit', 'sans-serif'],
+                        'alt': ['Poppins', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Roboto:wght@300;400;500;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        body {
+            background: #F8F6F2;
+            font-family: 'Roboto', sans-serif;
+            color: #1E2A32;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .dark body {
+            background: #12181C;
+            color: #E8EDEE;
+        }
+
+        /* Sidebar Navigation */
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100vh;
+            width: 280px;
+            background: white;
+            border-right: 1px solid rgba(224,168,43,0.2);
+            transition: transform 0.3s ease;
+            z-index: 100;
+            overflow-y: auto;
+        }
+
+        .dark .sidebar {
+            background: #1E2A2F;
+            border-right-color: #3A4A52;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+            .sidebar.open {
+                transform: translateX(0);
+            }
+        }
+
+        .sidebar-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 99;
+            display: none;
+        }
+
+        .sidebar-overlay.open {
+            display: block;
+        }
+
+        .sidebar-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.85rem 1.5rem;
+            margin: 0.25rem 0.75rem;
+            border-radius: 12px;
+            color: #4A5A62;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .dark .sidebar-item {
+            color: #BCC9CF;
+        }
+
+        .sidebar-item:hover {
+            background: rgba(224,168,43,0.1);
+            color: #E0A82B;
+        }
+
+        .sidebar-item.active {
+            background: #E0A82B;
+            color: #1E2A32;
+        }
+
+        .dark .sidebar-item.active {
+            background: #F5BC3C;
+            color: #12181C;
+        }
+
+        .sidebar-item i {
+            width: 24px;
+            font-size: 1.1rem;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 280px;
+            padding: 1.5rem;
+            min-height: 100vh;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                margin-left: 0;
+                padding-top: 70px;
+            }
+        }
+
+        /* Mobile Header */
+        .mobile-header {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid rgba(224,168,43,0.2);
+            z-index: 50;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .dark .mobile-header {
+            background: #1E2A2F;
+            border-bottom-color: #3A4A52;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-header {
+                display: flex;
+            }
+        }
+
+        /* Top Header */
+        .top-header {
+            background: white;
+            border-radius: 20px;
+            padding: 1rem 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(224,168,43,0.2);
+        }
+
+        .dark .top-header {
+            background: #1E2A2F;
+            border-color: #3A4A52;
+        }
+
+        /* Cards */
+        .stat-card {
+            background: white;
+            border-radius: 20px;
+            padding: 1.2rem;
+            border: 1px solid rgba(224,168,43,0.2);
+            transition: all 0.3s;
+        }
+
+        .dark .stat-card {
+            background: #1E2A2F;
+            border-color: #3A4A52;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-3px);
+            border-color: #E0A82B;
+        }
+
+        /* Claim Card */
+        .claim-card {
+            background: white;
+            border-radius: 16px;
+            padding: 1rem;
+            border: 1px solid rgba(224,168,43,0.2);
+            transition: all 0.2s;
+        }
+
+        .dark .claim-card {
+            background: #1E2A2F;
+            border-color: #3A4A52;
+        }
+
+        .claim-card:hover {
+            border-color: #E0A82B;
+        }
+
+        /* Status Badge */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.75rem;
+            border-radius: 40px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        .status-approved {
+            background: #E8F5E9;
+            color: #2E7D32;
+        }
+
+        .status-pending {
+            background: #FFF3E0;
+            color: #EF6C00;
+        }
+
+        .status-review {
+            background: #E3F2FD;
+            color: #1E4A76;
+        }
+
+        .dark .status-approved {
+            background: #1B5E20;
+            color: #A5D6A7;
+        }
+
+        .dark .status-pending {
+            background: #E65100;
+            color: #FFCC80;
+        }
+
+        .dark .status-review {
+            background: #01579B;
+            color: #81D4FA;
+        }
+
+        /* Progress Bar */
+        .progress-bar {
+            height: 6px;
+            background: #E9E7E2;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .dark .progress-bar {
+            background: #2A3A42;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: #E0A82B;
+            border-radius: 10px;
+            transition: width 0.5s ease;
+        }
+
+        /* Toggle Button */
+        .toggle-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: #E9E7E2;
+            color: #4A5A62;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+        }
+
+        .dark .toggle-btn {
+            background: #2A3A42;
+            color: #BCC9CF;
+        }
+
+        .toggle-btn:hover {
+            background: #E0A82B;
+            color: #1E2A32;
+        }
+
+        /* Primary Button */
+        .btn-primary {
+            background: #E0A82B;
+            color: #1E2A32;
+            padding: 0.7rem 1.5rem;
+            border-radius: 40px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            border: none;
+            cursor: pointer;
+            font-weight: 700;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .btn-primary:hover {
+            background: #C48A1D;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(224,168,43,0.4);
+        }
+
+        .btn-outline {
+            border: 1.5px solid #E0A82B;
+            background: transparent;
+            color: #E0A82B;
+            padding: 0.6rem 1.2rem;
+            border-radius: 40px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .btn-outline:hover {
+            background: #E0A82B;
+            color: #1E2A32;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #E9E7E2;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #E0A82B;
+            border-radius: 4px;
+        }
+
+        /* Page transitions */
+        .page-content.hidden {
+            display: none;
+        }
+
+        /* Photo preview */
+        .photo-preview {
+            background: #F8F6F2;
+            border-radius: 12px;
+            padding: 0.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px dashed rgba(224,168,43,0.4);
+        }
+
+        .photo-preview:hover {
+            background: rgba(224,168,43,0.1);
+            border-color: #E0A82B;
+        }
+
+        .dark .photo-preview {
+            background: #2A3A42;
+        }
+
+        /* Map placeholder */
+        .map-placeholder {
+            background: linear-gradient(135deg, #E9E7E2 0%, #CFD5DB 100%);
+            border-radius: 16px;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .dark .map-placeholder {
+            background: linear-gradient(135deg, #2A3A42 0%, #1E2A2F 100%);
+        }
+
+        /* RTL Support */
+        [dir="rtl"] .sidebar {
+            left: auto;
+            right: 0;
+            border-right: none;
+            border-left: 1px solid rgba(224,168,43,0.2);
+        }
+        [dir="rtl"] .main-content {
+            margin-left: 0;
+            margin-right: 280px;
+        }
+        @media (max-width: 768px) {
+            [dir="rtl"] .main-content {
+                margin-right: 0;
+            }
+            [dir="rtl"] .sidebar {
+                transform: translateX(100%);
+            }
+            [dir="rtl"] .sidebar.open {
+                transform: translateX(0);
+            }
+        }
+
+        /* Input styling */
+        .form-input, .form-select, .form-textarea {
+            border: 1px solid #CFD5DB;
+            border-radius: 12px;
+            padding: 0.75rem;
+            width: 100%;
+            background: white;
+            transition: all 0.2s;
+        }
+        .dark .form-input, .dark .form-select, .dark .form-textarea {
+            background: #2A3A42;
+            border-color: #4A5A62;
+            color: #E8EDEE;
+        }
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: none;
+            border-color: #E0A82B;
+            box-shadow: 0 0 0 3px rgba(224,168,43,0.2);
+        }
+    </style>
+</head>
+
+<body class="bg-[#F8F6F2] dark:bg-dark-bg">
+
+    <div class="mobile-header">
+        <div class="flex items-center space-x-3">
+            <button id="menuToggle" class="toggle-btn"><i class="fas fa-bars"></i></button>
+            <a href="index.html" class="flex items-center space-x-3 group">
+                <div
+                    class="w-10 h-10 bg-dent-gold rounded-xl flex items-center justify-center transform group-hover:rotate-12 transition duration-300 shadow-md">
+                    <i class="fas fa-car-side text-white text-xl"></i>
+                </div>
+                <div dir="ltr" class="flex">
+                    <span
+                        class="text-2xl font-display font-bold tracking-tight text-dent-charcoal dark:text-white">DENT</span>
+                    <span
+                        class="text-2xl font-display font-bold tracking-tight text-dent-gold dark:text-dent-gold-bright">CRAFT</span>
+                </div>
+            </a>
+        </div>
+        <div class="flex gap-2">
+            <button id="theme-toggle-mobile" class="toggle-btn"><i class="fas fa-moon"></i><i class="fas fa-sun hidden"></i></button>
+            <button id="rtl-toggle" class="toggle-btn">⇄</button>
+        </div>
+    </div>
+
+    <div id="sidebarOverlay" class="sidebar-overlay"></div>
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="p-5 border-b border-dent-gold/20 dark:border-slate-700">
+            <a href="index.html" class="flex items-center space-x-3 group">
+                <div
+                    class="w-10 h-10 bg-dent-gold rounded-xl flex items-center justify-center transform group-hover:rotate-12 transition duration-300 shadow-md">
+                    <i class="fas fa-car-side text-white text-xl"></i>
+                </div>
+                <div>
+                    <div dir="ltr" class="flex">
+                        <span
+                            class="text-2xl font-display font-bold tracking-tight text-dent-charcoal dark:text-white">DENT</span>
+                        <span
+                            class="text-2xl font-display font-bold tracking-tight text-dent-gold dark:text-dent-gold-bright">CRAFT</span>
+                    </div>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">Driver Portal</p>
+                </div>
+            </a>
+        </div>
+        <nav class="py-4">
+            <div class="sidebar-item active" data-page="dashboard"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></div>
+            <div class="sidebar-item" data-page="damage-report"><i class="fas fa-camera"></i><span>Submit Dent Photos</span></div>
+            <div class="sidebar-item" data-page="quotes"><i class="fas fa-dollar-sign"></i><span>Instant Estimates</span></div>
+            <div class="sidebar-item" data-page="service"><i class="fas fa-wrench"></i><span>Schedule PDR Service</span></div>
+            <div class="sidebar-item" data-page="tracking"><i class="fas fa-map-marker-alt"></i><span>Track Technician</span></div>
+            <div class="sidebar-item" data-page="warranty"><i class="fas fa-certificate"></i><span>Warranty Certificates</span></div>
+            <div class="sidebar-item" data-page="claims"><i class="fas fa-file-invoice"></i><span>Insurance Claims</span></div>
+            <div class="sidebar-item" data-page="settings"><i class="fas fa-cog"></i><span>Settings</span></div>
+        </nav>
+        <div class="absolute bottom-0 left-0 right-0 p-4 border-t border-dent-gold/20 dark:border-slate-700">
+            <div class="flex gap-2">
+                <button id="theme-toggle" class="toggle-btn flex-1"><i class="fas fa-moon"></i><i class="fas fa-sun hidden"></i></button>
+                <button id="rtl-toggle-desktop" class="toggle-btn flex-1">⇄</button>
+                <a href="login.html" title="Logout" class="toggle-btn flex-1"><i class="fas fa-sign-out-alt"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="top-header flex justify-between items-center flex-wrap gap-3">
+            <div>
+                <h1 class="text-2xl font-display font-bold" id="page-title">Dashboard</h1>
+                <p class="text-sm text-slate-500 dark:text-slate-400" id="page-subtitle">Welcome back, Michael</p>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="text-right hidden md:block">
+                    <p class="text-sm font-semibold">Michael Rodriguez</p>
+                    <p class="text-xs text-slate-500">Customer ID: DCT-4421</p>
+                </div>
+                <div class="w-10 h-10 bg-dent-gold/20 rounded-full flex items-center justify-center"><i class="fas fa-user text-dent-gold"></i></div>
+                <a href="login.html" class="bg-dent-charcoal hover:bg-dent-slate text-white font-semibold text-xs px-3 py-2 rounded-xl transition flex items-center gap-1.5 shadow-sm"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </div>
+
+        <!-- DASHBOARD -->
+        <div id="page-dashboard" class="page-content">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                <div class="stat-card">
+                    <div class="flex justify-between">
+                        <div><p class="text-xs text-slate-500 mb-1">Active Repairs</p><p class="text-2xl font-bold text-dent-gold">2</p></div>
+                        <div class="w-10 h-10 bg-dent-gold/10 rounded-full flex items-center justify-center"><i class="fas fa-clipboard-list text-dent-gold"></i></div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="flex justify-between">
+                        <div><p class="text-xs text-slate-500 mb-1">Pending Estimates</p><p class="text-2xl font-bold text-dent-gold">1</p></div>
+                        <div class="w-10 h-10 bg-dent-gold/10 rounded-full flex items-center justify-center"><i class="fas fa-calculator text-dent-gold"></i></div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="flex justify-between">
+                        <div><p class="text-xs text-slate-500 mb-1">Next Service</p><p class="text-2xl font-bold text-dent-gold">Tomorrow</p></div>
+                        <div class="w-10 h-10 bg-dent-gold/10 rounded-full flex items-center justify-center"><i class="fas fa-calendar-alt text-dent-gold"></i></div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="flex justify-between">
+                        <div><p class="text-xs text-slate-500 mb-1">Total Saved vs Body Shop</p><p class="text-2xl font-bold text-dent-green">$1,240</p></div>
+                        <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center"><i class="fas fa-piggy-bank text-dent-green"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="stat-card"><h3 class="font-display font-bold text-lg mb-3">Recent Activity</h3>
+                    <div class="space-y-3"><div class="flex gap-3 pb-2 border-b border-dent-gold/20"><i class="fas fa-camera text-dent-gold"></i><div><p class="text-sm font-medium">Dent photos submitted</p><p class="text-xs text-slate-500">Yesterday, 4:30 PM</p></div></div>
+                    <div class="flex gap-3 pb-2 border-b border-dent-gold/20"><i class="fas fa-coins text-dent-gold"></i><div><p class="text-sm font-medium">Estimate received: $892</p><p class="text-xs text-slate-500">Yesterday, 5:15 PM</p></div></div>
+                    <div class="flex gap-3"><i class="fas fa-wrench text-dent-gold"></i><div><p class="text-sm font-medium">PDR technician assigned for tomorrow</p><p class="text-xs text-slate-500">Today, 9:00 AM</p></div></div></div>
+                </div>
+                <div class="stat-card"><h3 class="font-display font-bold text-lg mb-3">Quick Actions</h3>
+                    <div class="space-y-3"><button data-nav="damage-report" class="w-full text-left px-4 py-2 bg-dent-gold/10 rounded-xl hover:bg-dent-gold/20 transition flex items-center gap-3"><i class="fas fa-camera text-dent-gold"></i><span>Submit New Dent Photos</span></button>
+                    <button data-nav="service" class="w-full text-left px-4 py-2 bg-dent-gold/10 rounded-xl hover:bg-dent-gold/20 transition flex items-center gap-3"><i class="fas fa-calendar-plus text-dent-gold"></i><span>Schedule Mobile PDR Service</span></button>
+                    <button data-nav="claims" class="w-full text-left px-4 py-2 bg-dent-gold/10 rounded-xl hover:bg-dent-gold/20 transition flex items-center gap-3"><i class="fas fa-hand-holding-usd text-dent-gold"></i><span>File Insurance Claim</span></button></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SUBMIT DENT PHOTOS -->
+        <div id="page-damage-report" class="page-content hidden">
+            <div class="stat-card"><h3 class="font-display font-bold text-xl mb-4">Submit Dent Photos for PDR Estimate</h3>
+                <p class="text-sm text-slate-500 mb-4">Upload clear photos of the dent. Our AI-powered system will provide an instant PDR estimate within 60 seconds.</p>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
+                    <div class="photo-preview"><i class="fas fa-plus text-2xl text-dent-gold mb-2 block"></i><span class="text-xs">Overall Panel</span><input type="file" class="hidden" accept="image/*"></div>
+                    <div class="photo-preview"><i class="fas fa-plus text-2xl text-dent-gold mb-2 block"></i><span class="text-xs">Close-up Dent</span></div>
+                    <div class="photo-preview"><i class="fas fa-plus text-2xl text-dent-gold mb-2 block"></i><span class="text-xs">Angle View</span></div>
+                    <div class="photo-preview"><i class="fas fa-plus text-2xl text-dent-gold mb-2 block"></i><span class="text-xs">Reflection Shot</span></div>
+                </div>
+                <textarea placeholder="Describe the dent location, size, and any additional details (optional)" class="form-textarea w-full mb-4" rows="3"></textarea>
+                <button class="btn-primary w-full md:w-auto"><i class="fas fa-magic"></i> Get Instant PDR Estimate</button>
+                <p class="text-xs text-slate-400 mt-3"><i class="fas fa-shield-alt"></i> Free estimate • No obligation • Lifetime warranty</p>
+            </div>
+        </div>
+
+        <!-- INSTANT ESTIMATES -->
+        <div id="page-quotes" class="page-content hidden">
+            <div class="stat-card"><h3 class="font-display font-bold text-xl mb-4">Your PDR Estimates</h3>
+                <div class="space-y-3"><div class="claim-card grid grid-cols-2 md:grid-cols-3 gap-4 items-center"><div class="col-span-2 md:col-span-1"><p class="font-bold">Front Fender Dent</p><p class="text-sm text-slate-500">Submitted: May 12, 2025</p></div><div class="col-span-1"><span class="status-badge status-review">AI Review</span></div><div class="col-span-1 text-right"><p class="text-xl font-bold text-dent-gold">$298</p><button class="text-sm font-semibold text-dent-gold hover:underline">Accept →</button></div></div>
+                <div class="claim-card grid grid-cols-2 md:grid-cols-3 gap-4 items-center"><div class="col-span-2 md:col-span-1"><p class="font-bold">Door Ding + Hail Damage</p><p class="text-sm text-slate-500">Submitted: May 10, 2025</p></div><div class="col-span-1"><span class="status-badge status-approved">Approved</span></div><div class="col-span-1 text-right"><p class="text-xl font-bold text-dent-gold">$892</p><button class="text-sm font-semibold text-dent-gold hover:underline">Schedule →</button></div></div></div>
+                <div class="mt-4 p-3 bg-dent-gold/5 rounded-xl"><i class="fas fa-bolt text-dent-gold mr-2"></i><span class="text-sm">Estimates valid for 7 days. Accept to proceed with mobile PDR service.</span></div>
+            </div>
+        </div>
+
+        <!-- SCHEDULE PDR SERVICE -->
+        <div id="page-service" class="page-content hidden">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
+                <div class="stat-card lg:col-span-2 flex flex-col h-full"><h3 class="font-display font-bold text-xl mb-4">Schedule Mobile PDR Service</h3>
+                    <div class="space-y-4 flex flex-col h-full"><div><label class="block text-sm font-medium mb-1">Preferred Date</label><input type="date" class="form-input"></div>
+                    <div><label class="block text-sm font-medium mb-1">Time Slot</label><select class="form-select"><option>Morning (8AM - 12PM)</option><option>Afternoon (12PM - 4PM)</option><option>Evening (4PM - 8PM)</option></select></div>
+                    <div><label class="block text-sm font-medium mb-1">Service Location</label><input type="text" value="123 Main Street, Los Angeles, CA 90001" class="form-input"></div>
+                    <button class="btn-primary w-full mt-auto"><i class="fas fa-check-circle"></i> Confirm Appointment</button></div>
+                </div>
+                <div class="stat-card flex flex-col h-full"><h3 class="font-display font-bold text-lg mb-3">Upcoming PDR Service</h3>
+                    <div class="text-center py-4 flex flex-col h-full"><i class="fas fa-calendar-day text-4xl text-dent-gold mb-2"></i><p class="font-bold">Tomorrow, May 14</p><p class="text-sm">10:30 AM - 12:30 PM</p><p class="text-xs text-slate-500 mt-1">PDR Tech: David Chen</p><div class="mt-auto pt-3"><span class="status-badge status-review">Confirmed</span></div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TRACK TECHNICIAN -->
+        <div id="page-tracking" class="page-content hidden">
+            <div class="stat-card"><h3 class="font-display font-bold text-xl mb-4">Live PDR Technician Tracking</h3>
+                <div class="map-placeholder mb-4"><div class="text-center"><i class="fas fa-map-marked-alt text-4xl text-dent-gold mb-2"></i><p class="text-sm font-medium">Live GPS Tracking</p><p class="text-xs text-slate-500">Technician en route - ETA 15 min</p></div></div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4"><div class="p-3 bg-dent-gold/5 rounded-xl flex items-center gap-3"><i class="fas fa-user-circle text-2xl text-dent-gold"></i><div><p class="font-semibold">Assigned PDR Technician</p><p class="text-sm">Michael Torres | ID: PDR-782</p></div></div>
+                <div class="p-3 bg-dent-gold/5 rounded-xl flex items-center gap-3"><i class="fas fa-phone-alt text-2xl text-dent-gold"></i><div><p class="font-semibold">Contact Dispatch</p><p class="text-sm">+1 (888) 337-8368</p></div></div></div>
+                <div class="mt-4 p-3 rounded-xl bg-dent-green/10 text-dent-green"><i class="fas fa-check-circle mr-2"></i> Technician will arrive between 10:15 AM - 10:45 AM</div>
+            </div>
+        </div>
+
+        <!-- WARRANTY CERTIFICATES -->
+        <div id="page-warranty" class="page-content hidden">
+            <div class="stat-card"><h3 class="font-display font-bold text-xl mb-4">Lifetime Warranty Certificates</h3>
+                <div class="space-y-3"><div class="claim-card flex justify-between items-center flex-wrap"><div><p class="font-bold">Front Fender Repair</p><p class="text-sm text-slate-500">Completed: April 15, 2025</p><p class="text-xs text-dent-gold mt-1">Certificate #PDR-2025-0421</p></div><button class="btn-outline text-sm"><i class="fas fa-download"></i> Download PDF</button></div>
+                <div class="claim-card flex justify-between items-center flex-wrap"><div><p class="font-bold">Door Ding Removal</p><p class="text-sm text-slate-500">Completed: March 22, 2025</p><p class="text-xs text-dent-gold mt-1">Certificate #PDR-2025-0389</p></div><button class="btn-outline text-sm"><i class="fas fa-download"></i> Download PDF</button></div></div>
+                <div class="mt-4 p-3 bg-dent-gold/5 rounded-xl"><i class="fas fa-shield-alt text-dent-gold mr-2"></i><span class="text-sm">All DentCraft repairs include a transferable lifetime warranty.</span></div>
+            </div>
+        </div>
+
+        <!-- INSURANCE CLAIMS -->
+        <div id="page-claims" class="page-content hidden">
+            <div class="stat-card"><div class="flex justify-between items-center mb-4 flex-wrap"><h3 class="font-display font-bold text-xl">Insurance Claims</h3><button class="btn-outline text-sm"><i class="fas fa-plus"></i> New Claim</button></div>
+                <div class="space-y-3"><div class="claim-card"><div class="flex justify-between items-start flex-wrap gap-2"><div><p class="font-bold">Claim #CLM-2025-0421</p><p class="text-sm text-slate-500">Submitted: May 5, 2025</p></div><span class="status-badge status-approved">Approved</span></div>
+                <div class="mt-2"><div class="flex justify-between text-sm mb-1"><span>Claim Progress</span><span>75%</span></div><div class="progress-bar"><div class="progress-fill" style="width:75%"></div></div></div>
+                <div class="flex justify-between mt-3 text-sm"><span><i class="fas fa-dollar-sign text-dent-gold"></i> Payout: $2,450</span><span class="text-dent-gold cursor-pointer">View Details →</span></div></div>
+                <div class="claim-card"><div class="flex justify-between items-start flex-wrap gap-2"><div><p class="font-bold">Claim #CLM-2025-0389</p><p class="text-sm text-slate-500">Submitted: April 22, 2025</p></div><span class="status-badge status-pending">Under Review</span></div>
+                <div class="mt-2"><div class="flex justify-between text-sm mb-1"><span>Claim Progress</span><span>40%</span></div><div class="progress-bar"><div class="progress-fill" style="width:40%"></div></div></div>
+                <div class="flex justify-between mt-3 text-sm"><span><i class="fas fa-clock text-dent-warning"></i> Estimated: 5-7 days</span><span class="text-dent-gold cursor-pointer">Upload Documents →</span></div></div></div>
+            </div>
+        </div>
+
+        <!-- SETTINGS -->
+        <div id="page-settings" class="page-content hidden">
+            <div class="stat-card"><h3 class="font-display font-bold text-xl mb-4">Account Settings</h3>
+                <div class="space-y-4"><div><label class="block text-sm font-medium mb-1">Full Name</label><input type="text" value="Michael Rodriguez" class="form-input"></div>
+                <div><label class="block text-sm font-medium mb-1">Phone Number</label><input type="tel" value="+1 (555) 342-7890" class="form-input"></div>
+                <div><label class="block text-sm font-medium mb-1">Email Address</label><input type="email" value="michael.r@dentcraft.com" class="form-input"></div>
+                <div><label class="block text-sm font-medium mb-1">Vehicle Info</label><input type="text" value="2022 Tesla Model 3 - VIN: 5YJ3E1EA3NF123456" class="form-input"></div>
+                <div><label class="block text-sm font-medium mb-1">Notification Preferences</label><div class="space-y-2"><label class="flex items-center gap-2"><input type="checkbox" checked class="rounded text-dent-gold"> SMS updates for technician arrival</label>
+                <label class="flex items-center gap-2"><input type="checkbox" checked class="rounded text-dent-gold"> Email estimate & claim status updates</label>
+                <label class="flex items-center gap-2"><input type="checkbox" class="rounded text-dent-gold"> PDR tips & special offers</label></div></div>
+                <button class="btn-primary w-full md:w-auto">Save Changes</button></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Theme Toggle
+            const themeToggle = document.getElementById('theme-toggle');
+            const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+            function setTheme(isDark) {
+                if (isDark) document.documentElement.classList.add('dark');
+                else document.documentElement.classList.remove('dark');
+                [themeToggle, themeToggleMobile].forEach(btn => {
+                    if (btn) {
+                        let moon = btn.querySelector('.fa-moon'), sun = btn.querySelector('.fa-sun');
+                        if (isDark) { moon?.classList.add('hidden'); sun?.classList.remove('hidden'); }
+                        else { moon?.classList.remove('hidden'); sun?.classList.add('hidden'); }
+                    }
+                });
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            }
+            const savedTheme = localStorage.getItem('theme');
+            setTheme(savedTheme === 'dark');
+            if (themeToggle) themeToggle.addEventListener('click', () => setTheme(!document.documentElement.classList.contains('dark')));
+            if (themeToggleMobile) themeToggleMobile.addEventListener('click', () => setTheme(!document.documentElement.classList.contains('dark')));
+
+            // RTL
+            const rtlBtns = document.querySelectorAll('#rtl-toggle, #rtl-toggle-desktop');
+            function setRTL(isRTL) { document.documentElement.dir = isRTL ? 'rtl' : 'ltr'; localStorage.setItem('dir', isRTL ? 'rtl' : 'ltr'); }
+            if (localStorage.getItem('dir') === 'rtl') setRTL(true);
+            rtlBtns.forEach(btn => btn?.addEventListener('click', () => setRTL(document.documentElement.dir !== 'rtl')));
+
+            // Mobile Sidebar
+            const menuToggle = document.getElementById('menuToggle'), sidebar = document.getElementById('sidebar'), overlay = document.getElementById('sidebarOverlay');
+            function closeSidebar() { sidebar.classList.remove('open'); overlay.classList.remove('open'); }
+            function openSidebar() { sidebar.classList.add('open'); overlay.classList.add('open'); }
+            if (menuToggle) menuToggle.addEventListener('click', (e) => { e.stopPropagation(); sidebar.classList.contains('open') ? closeSidebar() : openSidebar(); });
+            if (overlay) overlay.addEventListener('click', closeSidebar);
+            window.addEventListener('resize', () => { if (window.innerWidth > 768 && sidebar.classList.contains('open')) closeSidebar(); });
+
+            // Navigation
+            const sidebarItems = document.querySelectorAll('.sidebar-item');
+            const pages = document.querySelectorAll('.page-content');
+            const pageTitle = document.getElementById('page-title'), pageSubtitle = document.getElementById('page-subtitle');
+            const titles = {
+                dashboard: { title: 'Dashboard', subtitle: 'Welcome back, Michael' },
+                'damage-report': { title: 'Submit Dent Photos', subtitle: 'Upload photos for instant PDR estimate' },
+                quotes: { title: 'Instant Estimates', subtitle: 'Review and accept PDR estimates' },
+                service: { title: 'Schedule PDR Service', subtitle: 'Book mobile dent repair at your location' },
+                tracking: { title: 'Track Technician', subtitle: 'Live location & ETA of your PDR technician' },
+                warranty: { title: 'Warranty Certificates', subtitle: 'Download your lifetime warranty certificates' },
+                claims: { title: 'Insurance Claims', subtitle: 'Manage your insurance claims' },
+                settings: { title: 'Settings', subtitle: 'Update your profile and preferences' }
+            };
+            function navigateTo(page) {
+                sidebarItems.forEach(i => i.classList.remove('active'));
+                document.querySelector(`.sidebar-item[data-page="${page}"]`)?.classList.add('active');
+                pages.forEach(p => p.classList.add('hidden'));
+                document.getElementById(`page-${page}`)?.classList.remove('hidden');
+                if (titles[page]) { pageTitle.textContent = titles[page].title; pageSubtitle.textContent = titles[page].subtitle; }
+                closeSidebar();
+            }
+            sidebarItems.forEach(item => { item.addEventListener('click', () => { navigateTo(item.getAttribute('data-page')); }); });
+            document.querySelectorAll('[data-nav]').forEach(btn => { btn.addEventListener('click', () => { navigateTo(btn.getAttribute('data-nav')); }); });
+        });
+    </script>
+</body>
+
+</html>

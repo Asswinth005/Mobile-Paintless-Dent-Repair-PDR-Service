@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DentCraft | PDR Gallery – Before & After Transformations</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><path fill='%23E0A82B' d='M464 128H336v-32c0-17.6-14.4-32-32-32h-96c-17.6 0-32 14.4-32 32v32H48c-26.5 0-48 21.5-48 48v224c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V176c0-26.5-21.5-48-48-48zM288 400h-64v-48c0-8.8 7.2-16 16-16s16 7.2 16 16v48zm80-240v32H144v-32h224z'/></svg>">
+    <meta name="description"
+        content="Real before & after paintless dent repair transformations. See our work on door dings, hail damage, creases, and more. 12,000+ satisfied customers.">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'dent-gold': '#E0A82B',
+                        'dent-gold-dark': '#C48A1D',
+                        'dent-gold-bright': '#F5BC3C',
+                        'dent-charcoal': '#1E2A32',
+                        'dent-slate': '#2E3B44',
+                        'dent-light': '#F8F6F2',
+                        'dent-card': '#FFFFFF',
+                        'dark-bg': '#12181C',
+                        'dark-card': '#1E2A2F',
+                        'dark-surface': '#2A3A42',
+                    },
+                    fontFamily: {
+                        'sans': ['Roboto', 'system-ui', 'sans-serif'],
+                        'display': ['Outfit', 'sans-serif'],
+                        'premium': ['Syne', 'sans-serif'],
+                        'alt': ['Poppins', 'sans-serif'],
+                        'body': ['Roboto', 'sans-serif'],
+                    },
+                    animation: {
+                        'slide-up': 'slideUp 0.5s ease-out',
+                        'fade-in': 'fadeIn 0.3s ease-out',
+                        'glow-pulse': 'glowPulse 2s infinite',
+                        'float-slow': 'float 5s ease-in-out infinite',
+                        'zoom-in': 'zoomIn 0.4s ease-out',
+                    },
+                    keyframes: {
+                        slideUp: {
+                            '0%': { transform: 'translateY(30px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        glowPulse: {
+                            '0%, 100%': { boxShadow: '0 0 0 0 rgba(224,168,43,0.4)' },
+                            '50%': { boxShadow: '0 0 0 12px rgba(224,168,43,0)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-8px)' },
+                        },
+                        zoomIn: {
+                            '0%': { transform: 'scale(0.95)', opacity: '0' },
+                            '100%': { transform: 'scale(1)', opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Syne:wght@400;500;600;700;800&family=Roboto:wght@300;400;500;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        body {
+            background-color: #F8F6F2;
+            color: #1E2A32;
+        }
+
+        .dark body {
+            background-color: #12181C;
+            color: #E8EDEE;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+        }
+
+        .dark .text-dent-gold {
+            color: #F5BC3C !important;
+        }
+
+        .dark .bg-dent-gold {
+            background-color: #F5BC3C !important;
+        }
+
+        .dark .border-dent-gold {
+            border-color: #F5BC3C !important;
+        }
+
+        .dark .service-icon {
+            background: rgba(245, 188, 60, 0.15) !important;
+            color: #F5BC3C !important;
+        }
+
+        .dark .badge {
+            background: rgba(245, 188, 60, 0.2) !important;
+            color: #FFE2A4 !important;
+        }
+
+        .dark .nav-item:hover {
+            color: #E0A82B !important;
+        }
+
+        .dark .nav-item::after {
+            background: #E0A82B !important;
+        }
+
+        .dark .auth-btn.login:hover {
+            border-color: #E0A82B !important;
+            color: #E0A82B !important;
+        }
+
+        .dark .auth-btn.signup {
+            background: #E0A82B;
+            color: #12181C;
+        }
+
+        .dark .auth-btn.signup:hover {
+            background: #C48A1D;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .nav-item {
+            position: relative;
+            padding: 0.5rem 0;
+            font-weight: 600;
+            color: #1E2A32;
+            transition: color 0.3s;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .dark .nav-item {
+            color: #E8EDEE;
+        }
+
+        .nav-item:hover {
+            color: #E0A82B;
+        }
+
+        .nav-item::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #E0A82B;
+            transition: width 0.3s;
+        }
+
+        .nav-item:hover::after {
+            width: 100%;
+        }
+
+        .nav-item.active {
+            color: #E0A82B !important;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 220px;
+            background: white;
+            border-radius: 12px;
+            padding: 0.75rem 0;
+            box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s;
+            z-index: 1000;
+            border: 1px solid rgba(224, 168, 43, 0.2);
+        }
+
+        .dark .dropdown-menu {
+            background: #1E2A2F;
+            border-color: #3A4A52;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-item {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1.5rem;
+            color: #1E2A32;
+            transition: all 0.2s;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .dark .dropdown-item {
+            color: #E8EDEE;
+        }
+
+        .dropdown-item:hover {
+            background: rgba(224, 168, 43, 0.1);
+            color: #E0A82B;
+            padding-left: 1.75rem;
+        }
+
+        .dropdown-item i {
+            margin-right: 0.75rem;
+            width: 20px;
+            color: #E0A82B;
+        }
+
+        .auth-btn {
+            padding: 0.5rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 1px solid transparent;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .auth-btn.login {
+            background: transparent;
+            border-color: #CFD5DB;
+            color: #1E2A32;
+        }
+
+        .dark .auth-btn.login {
+            border-color: #4A5A62;
+            color: #E8EDEE;
+        }
+
+        .auth-btn.login:hover {
+            border-color: #E0A82B;
+            color: #E0A82B;
+        }
+
+        .auth-btn.signup {
+            background: #E0A82B;
+            color: #1E2A32;
+        }
+
+        .auth-btn.signup:hover {
+            background: #C48A1D;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 18px rgba(224, 168, 43, 0.3);
+        }
+
+        .toggle-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #E9E7E2;
+            color: #4A5A62;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .dark .toggle-btn {
+            background: #2A3A42;
+            color: #BCC9CF;
+        }
+
+        .toggle-btn:hover {
+            background: #E0A82B;
+            color: white;
+        }
+
+        .mobile-menu {
+            background: white;
+            border-top: 1px solid #E9E7E2;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+
+        .dark .mobile-menu {
+            background: #12181C;
+            border-color: #2A3A42;
+        }
+
+        .mobile-menu.open {
+            max-height: calc(100vh - 5rem);
+            overflow-y: auto;
+        }
+
+        .mobile-menu-item {
+            display: block;
+            padding: 1rem 1.5rem;
+            font-weight: 500;
+            border-bottom: 1px solid #E9E7E2;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .dark .mobile-menu-item {
+            border-bottom-color: #2A3A42;
+            color: #D1D9DE;
+        }
+
+        .mobile-dropdown-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s;
+            background: #FEFCF8;
+        }
+
+        .dark .mobile-dropdown-content {
+            background: #1A2429;
+        }
+
+        .mobile-dropdown-content.show {
+            max-height: 300px;
+        }
+
+        .mobile-dropdown-item {
+            display: block;
+            padding: 0.75rem 2.5rem;
+            font-size: 0.9rem;
+        }
+
+        .btn-dent {
+            background: #E0A82B;
+            color: #1E2A32;
+            padding: 0.9rem 2rem;
+            border-radius: 40px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            transition: all 0.3s;
+            font-family: 'Poppins', sans-serif;
+            box-shadow: 0 6px 14px rgba(224, 168, 43, 0.3);
+        }
+
+        .btn-dent:hover {
+            background: #C48A1D;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 24px rgba(224, 168, 43, 0.4);
+        }
+
+        footer {
+            background: white;
+            border-top: 1px solid rgba(224, 168, 43, 0.15);
+        }
+
+        .dark footer {
+            background: #12181C;
+            border-color: #2A3A42;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #E9E7E2;
+            color: #4A5A62;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .social-icon:hover {
+            background: #E0A82B;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .premium-line {
+            width: 70px;
+            height: 2px;
+            background: #E0A82B;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 1279px) {
+            .desktop-toggle-group {
+                display: none !important;
+            }
+        }
+
+        /* Gallery specific styles */
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1.5rem;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 40px -12px rgba(224, 168, 43, 0.3);
+        }
+
+        .gallery-item img {
+            transition: transform 0.6s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: flex-end;
+            padding: 1.5rem;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .filter-btn {
+            transition: all 0.2s ease;
+        }
+
+        .filter-btn.active {
+            background: #E0A82B;
+            color: #1E2A32;
+            border-color: #E0A82B;
+        }
+
+        .dark .filter-btn.active {
+            background: #F5BC3C;
+            color: #12181C;
+        }
+
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.92);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(8px);
+        }
+
+        .lightbox.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .lightbox-content {
+            max-width: 90vw;
+            max-height: 85vh;
+            position: relative;
+            animation: zoomIn 0.3s ease;
+        }
+
+        .lightbox-content img {
+            border-radius: 1rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            background: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .dark .lightbox-close {
+            background: #1E2A2F;
+            color: white;
+        }
+
+        .lightbox-close:hover {
+            background: #E0A82B;
+            color: #1E2A32;
+            transform: rotate(90deg);
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 1rem;
+        }
+
+        .lightbox-nav button {
+            background: rgba(255, 255, 255, 0.2);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            backdrop-filter: blur(4px);
+        }
+
+        .lightbox-nav button:hover {
+            background: #E0A82B;
+            color: #1E2A32;
+        }
+
+        .masonry-grid {
+            column-count: 3;
+            column-gap: 1.5rem;
+        }
+
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (max-width: 1024px) {
+            .masonry-grid {
+                column-count: 2;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .masonry-grid {
+                column-count: 1;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-[#F8F6F2] dark:bg-dark-bg">
+    <!-- HEADER - Same as reference -->
+    <nav
+        class="fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-dark-bg/95 backdrop-blur-md border-b border-[#E9E7E2] dark:border-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="flex items-center justify-between h-20">
+                <a href="index.html" class="flex items-center space-x-3 group">
+                    <div
+                        class="w-10 h-10 bg-dent-gold rounded-xl flex items-center justify-center transform group-hover:rotate-12 transition duration-300 shadow-md">
+                        <i class="fas fa-car-side text-white text-xl"></i>
+                    </div>
+                    <div dir="ltr" class="flex">
+                        <span
+                            class="text-2xl font-display font-bold tracking-tight text-dent-charcoal dark:text-white">DENT</span>
+                        <span
+                            class="text-2xl font-display font-bold tracking-tight text-dent-gold dark:text-dent-gold-bright">CRAFT</span>
+                    </div>
+                </a>
+                <div class="hidden xl:flex items-center">
+                    <div class="flex items-center gap-8">
+                        <div class="dropdown">
+                            <button class="nav-item flex items-center">Home <i
+                                    class="fas fa-chevron-down ms-2 text-xs"></i></button>
+                            <div class="dropdown-menu">
+                                <a href="index.html" class="dropdown-item">Home 1</a>
+                                <a href="home2.html" class="dropdown-item">Home 2</a>
+                            </div>
+                        </div>
+                        <a href="about.html" class="nav-item">About</a>
+                        <a href="service.html" class="nav-item">Services</a>
+                        <a href="price.html" class="nav-item">Pricing</a>
+                        <a href="gallery.html" class="nav-item active">Gallery</a>
+                        <div class="dropdown">
+                            <button class="nav-item flex items-center">Dashboard <i
+                                    class="fas fa-chevron-down ms-2 text-xs"></i></button>
+                            <div class="dropdown-menu">
+                                <a href="client.html" class="dropdown-item"><i class="fas fa-user"></i> Client</a>
+                                <a href="admin.html" class="dropdown-item"><i class="fas fa-user-shield"></i> Admin</a>
+                            </div>
+                        </div>
+                        <a href="contact.html" class="nav-item">Contact</a>
+                    </div>
+                    <div class="flex items-center gap-3 ms-8">
+                        <a href="login.html" class="auth-btn login">Login</a>
+                        <a href="signup.html" class="auth-btn signup">Sign Up</a>
+                    </div>
+                    <div class="flex gap-2 ms-4 desktop-toggle-group">
+                        <button id="theme-toggle" class="toggle-btn"><i class="fas fa-moon"></i><i
+                                class="fas fa-sun hidden"></i></button>
+                        <button id="rtl-toggle" class="toggle-btn">⇄</button>
+                    </div>
+                </div>
+                <button id="mobile-toggle" class="xl:hidden text-dent-charcoal dark:text-gray-300 p-2"><i
+                        class="fas fa-bars text-xl"></i></button>
+            </div>
+            <div id="mobile-menu" class="mobile-menu xl:hidden">
+                <div class="mobile-dropdown"><button
+                        class="mobile-dropdown-btn flex justify-between w-full mobile-menu-item">Home <i
+                            class="fas fa-chevron-down"></i></button>
+                    <div class="mobile-dropdown-content"><a href="index.html" class="mobile-dropdown-item">Home 1</a><a
+                            href="home2.html" class="mobile-dropdown-item">Home 2</a></div>
+                </div>
+                <a href="about.html" class="mobile-menu-item">About</a>
+                <a href="service.html" class="mobile-menu-item">Services</a>
+                <a href="price.html" class="mobile-menu-item">Pricing</a>
+                <a href="gallery.html" class="mobile-menu-item text-dent-gold bg-dent-gold/10">Gallery</a>
+                <div class="mobile-dropdown"><button
+                        class="mobile-dropdown-btn flex justify-between w-full mobile-menu-item">Dashboard <i
+                            class="fas fa-chevron-down"></i></button>
+                    <div class="mobile-dropdown-content"><a href="client.html" class="mobile-dropdown-item"><i
+                                class="fas fa-user me-2 text-dent-gold"></i> Client</a><a href="admin.html"
+                            class="mobile-dropdown-item"><i class="fas fa-user-shield me-2 text-dent-gold"></i>
+                            Admin</a></div>
+                </div>
+                <a href="contact.html" class="mobile-menu-item">Contact</a>
+                <div class="flex flex-col sm:flex-row gap-3 p-6"><a href="login.html"
+                        class="mobile-auth-btn login flex-1 text-center">Login</a><a href="signup.html"
+                        class="mobile-auth-btn signup flex-1 text-center">Start Claim</a></div>
+                <div class="flex justify-center gap-3 p-6 border-t border-gray-200 dark:border-gray-800"><button
+                        id="theme-toggle-mobile" class="toggle-btn"><i class="fas fa-moon"></i><i
+                            class="fas fa-sun hidden"></i></button><button id="rtl-toggle-mobile"
+                        class="toggle-btn">⇄</button></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- GALLERY HERO -->
+    <section
+        class="pt-36 pb-16 md:pt-44 md:pb-20 relative overflow-hidden bg-gradient-to-br from-dent-charcoal/5 via-transparent to-dent-gold/10">
+        <div class="container mx-auto px-6 text-center animate-slide-up">
+            <div
+                class="inline-flex items-center gap-2 bg-white dark:bg-dark-card/80 px-5 py-2 rounded-full shadow-sm mb-6 border border-dent-gold/40">
+                <i class="fas fa-images text-dent-gold"></i><span class="text-sm font-bold tracking-wide">WORK GALLERY • REAL RESULTS</span>
+            </div>
+            <h1
+                class="text-4xl md:text-6xl lg:text-7xl font-display font-black text-dent-charcoal dark:text-white leading-tight">
+                Our <span class="text-dent-gold">Transformations</span></h1>
+            <div class="premium-line mx-auto"></div>
+            <p class="text-lg md:text-xl text-dent-charcoal/80 dark:text-gray-300 max-w-2xl mx-auto mt-4">12,000+
+                vehicles restored to factory finish — see the DentCraft difference</p>
+        </div>
+    </section>
+
+    <!-- FILTER BUTTONS -->
+    <section class="py-8">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-wrap justify-center gap-3">
+                <button
+                    class="filter-btn active px-6 py-2 rounded-full border-2 border-dent-gold font-semibold transition"
+                    data-filter="all">All Work</button>
+                <button
+                    class="filter-btn px-6 py-2 rounded-full border-2 border-gray-300 dark:border-gray-600 font-semibold hover:border-dent-gold transition"
+                    data-filter="door">Door Dings</button>
+                <button
+                    class="filter-btn px-6 py-2 rounded-full border-2 border-gray-300 dark:border-gray-600 font-semibold hover:border-dent-gold transition"
+                    data-filter="hail">Hail Damage</button>
+                <button
+                    class="filter-btn px-6 py-2 rounded-full border-2 border-gray-300 dark:border-gray-600 font-semibold hover:border-dent-gold transition"
+                    data-filter="crease">Creases & Bodylines</button>
+                <button
+                    class="filter-btn px-6 py-2 rounded-full border-2 border-gray-300 dark:border-gray-600 font-semibold hover:border-dent-gold transition"
+                    data-filter="fleet">Fleet Vehicles</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- MASONRY GALLERY GRID -->
+    <section class="py-8 pb-20">
+        <div class="container mx-auto px-6">
+            <div class="masonry-grid" id="galleryGrid">
+                <!-- Gallery items will be populated by JS but also have static fallback -->
+            </div>
+            <div class="text-center mt-12">
+                <button class="btn-dent" id="loadMoreBtn"><i class="fas fa-plus-circle"></i> Load More
+                    Transformations</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS SECTION -->
+    <section class="py-16 bg-dent-gold/10 dark:bg-dent-gold/5">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div><i class="fas fa-car text-4xl text-dent-gold mb-3"></i>
+                    <p class="text-3xl font-black text-dent-gold">12,000+</p>
+                    <p class="text-sm opacity-75">Vehicles Restored</p>
+                </div>
+                <div><i class="fas fa-star text-4xl text-dent-gold mb-3"></i>
+                    <p class="text-3xl font-black text-dent-gold">4.98 ★</p>
+                    <p class="text-sm opacity-75">Average Rating</p>
+                </div>
+                <div><i class="fas fa-clock text-4xl text-dent-gold mb-3"></i>
+                    <p class="text-3xl font-black text-dent-gold">10+ Years</p>
+                    <p class="text-sm opacity-75">PDR Experience</p>
+                </div>
+                <div><i class="fas fa-shield-alt text-4xl text-dent-gold mb-3"></i>
+                    <p class="text-3xl font-black text-dent-gold">Lifetime</p>
+                    <p class="text-sm opacity-75">Warranty</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    </section>
+
+    <!-- TESTIMONIAL CTA -->
+    <section class="py-20 bg-gradient-to-r from-dent-gold/5 to-transparent">
+        <div class="container mx-auto px-6 text-center"><i
+                class="fas fa-quote-right text-5xl text-dent-gold/40 mb-4"></i>
+            <h2 class="text-3xl md:text-4xl font-display font-bold mb-6">Ready to See Your <span
+                    class="text-dent-gold">Own Transformation?</span></h2>
+            <p class="text-xl max-w-2xl mx-auto mb-8 opacity-80">Upload photos of your dent and get a free estimate
+                within 60 seconds.</p><button class="btn-dent text-lg"><i class="fas fa-camera"></i> Get Free Quote
+                Now</button>
+        </div>
+    </section>
+
+    <!-- FOOTER - exact copy -->
+    <footer class="py-16">
+        <div class="container mx-auto px-6 text-center md:text-start">
+            <div class="grid md:grid-cols-4 gap-10">
+                <div>
+                    <div class="flex items-center justify-center md:justify-start gap-3 mb-5">
+                        <div class="w-10 h-10 bg-dent-gold rounded-xl flex items-center justify-center"><i
+                                class="fas fa-car-side text-white"></i></div><span dir="ltr"
+                            class="text-2xl font-display font-bold inline-flex">DENT<span
+                                class="text-dent-gold">CRAFT</span></span>
+                    </div>
+                    <p class="text-[15px] opacity-80">Mobile paintless dent repair • PDR specialists since 2015. 12k+
+                        vehicles restored.</p>
+                    <div class="flex justify-center md:justify-start gap-4 mt-6"><a href="#" class="social-icon"><i
+                                class="fab fa-instagram"></i></a><a href="#" class="social-icon"><i
+                                class="fab fa-facebook-f"></i></a><a href="#" class="social-icon"><i
+                                class="fab fa-x-twitter"></i></a></div>
+                </div>
+                <div>
+                    <h3 class="font-display text-xl font-bold mb-5">Repair Guide</h3>
+                    <ul class="space-y-3 text-[15px]">
+                        <li><a href="#" class="hover:text-dent-gold">Dent Complexity Checker</a></li>
+                        <li><a href="#" class="hover:text-dent-gold">Hail Damage Repair</a></li>
+                        <li><a href="#" class="hover:text-dent-gold">PDR vs Traditional Body Shop</a></li>
+                        <li><a href="#" class="hover:text-dent-gold">Insurance Claim Steps</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-display text-xl font-bold mb-5">Dashboard</h3>
+                    <ul class="space-y-3 text-[15px]">
+                        <li><a href="#" class="hover:text-dent-gold">Track My Repair</a></li>
+                        <li><a href="#" class="hover:text-dent-gold">Claim Status</a></li>
+                        <li><a href="#" class="hover:text-dent-gold">Upload Photos</a></li>
+                        <li><a href="#" class="hover:text-dent-gold">Invoice History</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-display text-xl font-bold mb-5">Contact</h3>
+                    <ul class="space-y-3 text-[15px]">
+                        <li class="flex justify-center md:justify-start gap-2"><i
+                                class="fas fa-map-marker-alt text-dent-gold mt-1"></i> <span>Serving nationwide / mobile
+                                fleet</span></li>
+                        <li class="flex justify-center md:justify-start gap-2"><i
+                                class="fas fa-envelope text-dent-gold mt-1"></i> <span
+                                dir="ltr">repair@dentcraft.com</span></li>
+                        <li class="flex justify-center md:justify-start gap-2"><i
+                                class="fas fa-clock mt-1 text-dent-gold"></i> <span>Mon–Sat: 8AM – 8PM (on-site)</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-dent-gold/20 mt-12 pt-8 text-center text-[15px] opacity-70">© 2026 DENTCRAFT —
+                Paintless Dent Repair. Lifetime warranty & insurance concierge.</div>
+        </div>
+    </footer>
+
+    <!-- LIGHTBOX -->
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox-content"><img id="lightboxImg" src="" alt="">
+            <div class="lightbox-close" id="lightboxClose"><i class="fas fa-times"></i></div>
+            <div class="lightbox-nav"><button id="prevBtn"><i class="fas fa-chevron-left text-2xl"></i></button><button
+                    id="nextBtn"><i class="fas fa-chevron-right text-2xl"></i></button></div>
+        </div>
+    </div>
+
+    <script>
+        // Gallery Data
+        const galleryData = [
+            { id: 1, category: 'door', title: 'Door Ding Removal', image: '/assest/ding.jpg', vehicle: 'Honda Civic', duration: '35 min' },
+            { id: 2, category: 'hail', title: 'Hail Storm Recovery', image: '/assest/bd.jpg', vehicle: 'Tesla Model 3', duration: '2.5 hours' },
+            { id: 3, category: 'crease', title: 'Bodyline Crease Repair', image: '/assest/bd.jpg', vehicle: 'BMW 3 Series', duration: '90 min' },
+            { id: 4, category: 'door', title: 'Parking Lot Ding', image: '/assest/ding2.jpg', vehicle: 'Toyota Camry', duration: '40 min' },
+            { id: 5, category: 'hail', title: 'Severe Hail Damage', image: '/assest/hail2.jpg', vehicle: 'Ford F-150', duration: '4 hours' },
+            { id: 6, category: 'fleet', title: 'Fleet Van Restoration', image: '/assest/fleet2.jpg', vehicle: 'Mercedes Sprinter', duration: '2 hours' },
+            { id: 7, category: 'crease', title: 'Sharp Edge Dent', image: '/assest/crease2.jpg', vehicle: 'Audi A4', duration: '75 min' },
+            { id: 8, category: 'door', title: 'Shopping Cart Damage', image: '/assest/car.jpg', vehicle: 'Mazda CX-5', duration: '30 min' },
+            { id: 9, category: 'hail', title: 'Hail Dent Package', image: '/assest/mir.jpg', vehicle: 'Subaru Outback', duration: '3 hours' }
+        ];
+
+        let currentFilter = 'all';
+        let visibleCount = 6;
+        let currentLightboxIndex = 0;
+        let filteredItems = [];
+
+        function renderGallery() {
+            filteredItems = galleryData.filter(item => currentFilter === 'all' || item.category === currentFilter);
+            const itemsToShow = filteredItems.slice(0, visibleCount);
+            const grid = document.getElementById('galleryGrid');
+            grid.innerHTML = itemsToShow.map((item, idx) => `
+                <div class="masonry-item gallery-item group" data-id="${item.id}" data-category="${item.category}" data-index="${idx}">
+                    <div class="relative rounded-2xl overflow-hidden shadow-lg bg-white dark:bg-dark-card border border-dent-gold/20">
+                        <div class="relative aspect-[4/3] overflow-hidden">
+                            <img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg text-dent-charcoal dark:text-white">${item.title}</h3>
+                            <div class="flex justify-between text-sm text-gray-500 dark:text-gray-400 mt-2">
+                                <span><i class="fas fa-car text-dent-gold/80"></i> ${item.vehicle}</span>
+                                <span><i class="far fa-clock text-dent-gold/80"></i> ${item.duration}</span>
+                            </div>
+                            <button class="view-btn w-full mt-3 py-2 border border-dent-gold text-dent-gold rounded-full text-sm font-semibold hover:bg-dent-gold hover:text-dent-charcoal dark:hover:text-dark-bg transition" data-img="${item.image}" data-title="${item.title}"><i class="fas fa-search-plus mr-1"></i> View Large</button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            // Re-attach event listeners to view buttons
+            document.querySelectorAll('.view-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const imgSrc = btn.getAttribute('data-img');
+                    const title = btn.getAttribute('data-title');
+                    document.getElementById('lightboxImg').src = imgSrc;
+                    document.getElementById('lightbox').classList.add('active');
+                });
+            });
+
+            // Check if load more button should be hidden
+            const loadBtn = document.getElementById('loadMoreBtn');
+            if (visibleCount >= filteredItems.length) {
+                loadBtn.style.display = 'none';
+            } else {
+                loadBtn.style.display = 'inline-flex';
+            }
+        }
+
+        // Filter functionality
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentFilter = btn.getAttribute('data-filter');
+                visibleCount = 6;
+                renderGallery();
+            });
+        });
+
+        // Load more
+        document.getElementById('loadMoreBtn').addEventListener('click', () => {
+            visibleCount += 6;
+            renderGallery();
+        });
+
+        // Lightbox close
+        document.getElementById('lightboxClose').addEventListener('click', () => {
+            document.getElementById('lightbox').classList.remove('active');
+        });
+        document.getElementById('lightbox').addEventListener('click', (e) => {
+            if (e.target === document.getElementById('lightbox')) {
+                document.getElementById('lightbox').classList.remove('active');
+            }
+        });
+
+        // Video trigger placeholder
+        document.getElementById('videoTrigger')?.addEventListener('click', () => {
+            alert('Video demonstration would play here. In production, embed actual PDR process video.');
+        });
+
+        // Initial render
+        renderGallery();
+
+        // Theme toggle and mobile menu (same as reference)
+        document.addEventListener('DOMContentLoaded', function () {
+            const themeToggle = document.getElementById('theme-toggle'), mobileTheme = document.getElementById('theme-toggle-mobile');
+            function setTheme() { const isDark = document.documentElement.classList.toggle('dark'); const icons = [[themeToggle, mobileTheme]]; icons.forEach(btn => { if (btn[0]) { const moon = btn[0].querySelector('.fa-moon'), sun = btn[0].querySelector('.fa-sun'); if (isDark) { moon?.classList.add('hidden'); sun?.classList.remove('hidden'); } else { moon?.classList.remove('hidden'); sun?.classList.add('hidden'); } } }); localStorage.setItem('theme', isDark ? 'dark' : 'light'); }
+            if (themeToggle) themeToggle.addEventListener('click', setTheme);
+            if (mobileTheme) mobileTheme.addEventListener('click', setTheme);
+            if (localStorage.getItem('theme') === 'dark') document.documentElement.classList.add('dark');
+            const rtl = document.getElementById('rtl-toggle'), rtlMob = document.getElementById('rtl-toggle-mobile');
+            function toggleRTL() { if (document.documentElement.dir === 'rtl') { document.documentElement.dir = 'ltr'; localStorage.setItem('dir', 'ltr'); } else { document.documentElement.dir = 'rtl'; localStorage.setItem('dir', 'rtl'); } }
+            rtl?.addEventListener('click', toggleRTL); rtlMob?.addEventListener('click', toggleRTL);
+            if (localStorage.getItem('dir') === 'rtl') document.documentElement.dir = 'rtl';
+            const mobToggle = document.getElementById('mobile-toggle'), mobMenu = document.getElementById('mobile-menu');
+            if (mobToggle) { mobToggle.addEventListener('click', () => { mobMenu.classList.toggle('open'); const icon = mobToggle.querySelector('i'); if (mobMenu.classList.contains('open')) { icon.classList.remove('fa-bars'); icon.classList.add('fa-times'); } else { icon.classList.remove('fa-times'); icon.classList.add('fa-bars'); } }); }
+            document.querySelectorAll('.mobile-dropdown-btn').forEach(btn => { btn.addEventListener('click', (e) => { const content = btn.closest('.mobile-dropdown')?.querySelector('.mobile-dropdown-content'); if (content) { content.classList.toggle('show'); const icon = btn.querySelector('.fa-chevron-down'); if (icon) icon.style.transform = content.classList.contains('show') ? 'rotate(180deg)' : 'rotate(0deg)'; } }); });
+        });
+    </script>
+</body>
+
+</html>
