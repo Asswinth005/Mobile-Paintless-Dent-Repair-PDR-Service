@@ -353,10 +353,12 @@
             font-weight: 700;
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 0.6rem;
             transition: all 0.3s;
             font-family: 'Poppins', sans-serif;
             box-shadow: 0 6px 14px rgba(224, 168, 43, 0.3);
+            white-space: nowrap;
         }
 
         .btn-dent:hover {
@@ -643,8 +645,8 @@
                 </div>
                 <a href="contact.html" class="mobile-menu-item">Contact</a>
                 <div class="flex flex-col sm:flex-row gap-3 p-6"><a href="login.html"
-                        class="mobile-auth-btn login flex-1 text-center">Login</a><a href="signup.html"
-                        class="mobile-auth-btn signup flex-1 text-center">Start Claim</a></div>
+                        class="auth-btn login flex-1 text-center">Login</a><a href="signup.html"
+                        class="auth-btn signup flex-1 text-center">Sign Up</a></div>
                 <div class="flex justify-center gap-3 p-6 border-t border-gray-200 dark:border-gray-800"><button
                         id="theme-toggle-mobile" class="toggle-btn"><i class="fas fa-moon"></i><i
                             class="fas fa-sun hidden"></i></button><button id="rtl-toggle-mobile"
@@ -814,7 +816,7 @@
         // Gallery Data
         const galleryData = [
             { id: 1, category: 'door', title: 'Door Ding Removal', image: '/assest/ding.jpg', vehicle: 'Honda Civic', duration: '35 min' },
-            { id: 2, category: 'hail', title: 'Hail Storm Recovery', image: '/assest/bd.jpg', vehicle: 'Tesla Model 3', duration: '2.5 hours' },
+            { id: 2, category: 'hail', title: 'Hail Storm Recovery', image: '/assest/hail_storm_recovery.png', vehicle: 'Tesla Model 3', duration: '2.5 hours' },
             { id: 3, category: 'crease', title: 'Bodyline Crease Repair', image: '/assest/bd.jpg', vehicle: 'BMW 3 Series', duration: '90 min' },
             { id: 4, category: 'door', title: 'Parking Lot Ding', image: '/assest/ding2.jpg', vehicle: 'Toyota Camry', duration: '40 min' },
             { id: 5, category: 'hail', title: 'Severe Hail Damage', image: '/assest/hail2.jpg', vehicle: 'Ford F-150', duration: '4 hours' },

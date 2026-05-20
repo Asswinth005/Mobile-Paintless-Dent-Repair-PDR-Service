@@ -353,10 +353,12 @@
             font-weight: 700;
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 0.6rem;
             transition: all 0.3s;
             font-family: 'Poppins', sans-serif;
             box-shadow: 0 6px 14px rgba(224, 168, 43, 0.3);
+            white-space: nowrap;
         }
 
         .btn-dent:hover {
@@ -563,8 +565,8 @@
                 </div>
                 <a href="contact.html" class="mobile-menu-item">Contact</a>
                 <div class="flex flex-col sm:flex-row gap-3 p-6"><a href="login.html"
-                        class="mobile-auth-btn login flex-1 text-center">Login</a><a href="signup.html"
-                        class="mobile-auth-btn signup flex-1 text-center">Start Claim</a></div>
+                        class="auth-btn login flex-1 text-center">Login</a><a href="signup.html"
+                        class="auth-btn signup flex-1 text-center">Sign Up</a></div>
                 <div class="flex justify-center gap-3 p-6 border-t border-gray-200 dark:border-gray-800"><button
                         id="theme-toggle-mobile" class="toggle-btn"><i class="fas fa-moon"></i><i
                             class="fas fa-sun hidden"></i></button><button id="rtl-toggle-mobile"
@@ -672,49 +674,51 @@
                 <div class="w-20 h-1 bg-dent-gold mx-auto mt-3"></div>
                 <p class="mt-3 opacity-75">Pricing based on dent size, depth, and location</p>
             </div>
-            <div
-                class="max-w-4xl mx-auto overflow-hidden rounded-2xl shadow-xl border border-dent-gold/20 bg-white dark:bg-dark-card">
-                <div class="grid grid-cols-4 bg-dent-gold/10 p-4 font-bold border-b">
-                    <div>Dent Type</div>
-                    <div>Size</div>
-                    <div>Difficulty</div>
-                    <div>Price</div>
-                </div>
-                <div class="grid grid-cols-4 p-4 border-b hover:bg-dent-gold/5">
-                    <div>Minor Ding</div>
-                    <div>&lt; 0.5 inch</div>
-                    <div>Easy</div>
-                    <div class="text-dent-gold font-bold">$75 – $99</div>
-                </div>
-                <div class="grid grid-cols-4 p-4 border-b hover:bg-dent-gold/5">
-                    <div>Standard Ding</div>
-                    <div>0.5 – 1 inch</div>
-                    <div>Moderate</div>
-                    <div class="text-dent-gold font-bold">$100 – $149</div>
-                </div>
-                <div class="grid grid-cols-4 p-4 border-b hover:bg-dent-gold/5">
-                    <div>Large Dent</div>
-                    <div>1 – 2 inches</div>
-                    <div>Moderate+</div>
-                    <div class="text-dent-gold font-bold">$150 – $249</div>
-                </div>
-                <div class="grid grid-cols-4 p-4 border-b hover:bg-dent-gold/5">
-                    <div>Crease / Bodyline</div>
-                    <div>2+ inches</div>
-                    <div>Advanced</div>
-                    <div class="text-dent-gold font-bold">$250 – $450</div>
-                </div>
-                <div class="grid grid-cols-4 p-4 border-b hover:bg-dent-gold/5">
-                    <div>Hail Damage (panel)</div>
-                    <div>Multiple</div>
-                    <div>Variable</div>
-                    <div class="text-dent-gold font-bold">$350 – $800</div>
-                </div>
-                <div class="grid grid-cols-4 p-4 hover:bg-dent-gold/5">
-                    <div>Sharp Edge Dent</div>
-                    <div>Any</div>
-                    <div>Expert</div>
-                    <div class="text-dent-gold font-bold">$400 – $750</div>
+            <div class="w-full overflow-x-auto pb-4">
+                <div
+                    class="min-w-[650px] max-w-4xl mx-auto overflow-hidden rounded-2xl shadow-xl border border-dent-gold/20 bg-white dark:bg-dark-card">
+                    <div class="grid grid-cols-4 bg-dent-gold/10 p-4 font-bold border-b gap-4">
+                        <div>Dent Type</div>
+                        <div>Size</div>
+                        <div>Difficulty</div>
+                        <div>Price</div>
+                    </div>
+                    <div class="grid grid-cols-4 p-4 border-b hover:bg-dent-gold/5 gap-4">
+                        <div>Minor Ding</div>
+                        <div>&lt; 0.5 inch</div>
+                        <div>Easy</div>
+                        <div class="text-dent-gold font-bold">$75 – $99</div>
+                    </div>
+                    <div class="grid grid-cols-4 p-4 border-b hover:bg-dent-gold/5 gap-4">
+                        <div>Standard Ding</div>
+                        <div>0.5 – 1 inch</div>
+                        <div>Moderate</div>
+                        <div class="text-dent-gold font-bold">$100 – $149</div>
+                    </div>
+                    <div class="grid grid-cols-4 p-4 border-b hover:bg-dent-gold/5 gap-4">
+                        <div>Large Dent</div>
+                        <div>1 – 2 inches</div>
+                        <div>Moderate+</div>
+                        <div class="text-dent-gold font-bold">$150 – $249</div>
+                    </div>
+                    <div class="grid grid-cols-4 p-4 border-b hover:bg-dent-gold/5 gap-4">
+                        <div>Crease / Bodyline</div>
+                        <div>2+ inches</div>
+                        <div>Advanced</div>
+                        <div class="text-dent-gold font-bold">$250 – $450</div>
+                    </div>
+                    <div class="grid grid-cols-4 p-4 border-b hover:bg-dent-gold/5 gap-4">
+                        <div>Hail Damage (panel)</div>
+                        <div>Multiple</div>
+                        <div>Variable</div>
+                        <div class="text-dent-gold font-bold">$350 – $800</div>
+                    </div>
+                    <div class="grid grid-cols-4 p-4 hover:bg-dent-gold/5 gap-4">
+                        <div>Sharp Edge Dent</div>
+                        <div>Any</div>
+                        <div>Expert</div>
+                        <div class="text-dent-gold font-bold">$400 – $750</div>
+                    </div>
                 </div>
             </div>
             <p class="text-center text-xs opacity-60 mt-4"><i class="fas fa-info-circle"></i> All prices include mobile

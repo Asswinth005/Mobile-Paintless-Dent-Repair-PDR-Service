@@ -344,10 +344,12 @@
             font-weight: 700;
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 0.6rem;
             transition: all 0.3s;
             font-family: 'Poppins', sans-serif;
             box-shadow: 0 6px 14px rgba(224, 168, 43, 0.3);
+            white-space: nowrap;
         }
 
         .btn-dent:hover {
@@ -523,8 +525,8 @@
                 </div>
                 <a href="contact.html" class="mobile-menu-item text-dent-gold bg-dent-gold/10">Contact</a>
                 <div class="flex flex-col sm:flex-row gap-3 p-6"><a href="login.html"
-                        class="mobile-auth-btn login flex-1 text-center">Login</a><a href="signup.html"
-                        class="mobile-auth-btn signup flex-1 text-center">Start Claim</a></div>
+                        class="auth-btn login flex-1 text-center">Login</a><a href="signup.html"
+                        class="auth-btn signup flex-1 text-center">Sign Up</a></div>
                 <div class="flex justify-center gap-3 p-6 border-t border-gray-200 dark:border-gray-800"><button
                         id="theme-toggle-mobile" class="toggle-btn"><i class="fas fa-moon"></i><i
                             class="fas fa-sun hidden"></i></button><button id="rtl-toggle-mobile"
@@ -556,7 +558,7 @@
             <div class="grid md:grid-cols-4 gap-6">
                 <div class="contact-card bg-white dark:bg-dark-card rounded-2xl p-6 text-center">
                     <div class="w-14 h-14 bg-dent-gold/15 rounded-full flex items-center justify-center mx-auto mb-4"><i
-                            class="fas fa-phone-alt text-2xl text-dent-gold"></i></div>
+                            class="fas fa-phone text-2xl text-dent-gold" style="display: inline-block; margin-left: 4px;"></i></div>
                     <h3 class="font-bold text-lg mb-2">Call Us</h3>
                     <p class="text-2xl font-black text-dent-gold">(888) 337-8368</p>
                     <p class="text-xs opacity-70 mt-2">Mon–Sat: 8AM – 8PM</p>
@@ -755,8 +757,8 @@
             <p class="text-xl max-w-2xl mx-auto mb-6">Call, text, or WhatsApp us — we're here to answer all your
                 questions.</p>
             <div class="flex flex-wrap justify-center gap-4"><a href="tel:+18883378368"
-                    class="bg-white text-dent-gold px-8 py-3 rounded-full font-bold shadow-lg hover:shadow-xl transition"><i
-                        class="fas fa-phone-alt mr-2"></i> Call Now</a><a href="#"
+                    class="bg-white text-dent-gold px-8 py-3 rounded-full font-bold shadow-lg hover:shadow-xl transition">Call Now <i
+                        class="fas fa-phone-alt ms-2"></i></a><a href="#"
                     class="border-2 border-white text-white px-8 py-3 rounded-full font-bold hover:bg-white/10 transition"><i
                         class="fab fa-whatsapp mr-2"></i> WhatsApp Us</a></div>
         </div>

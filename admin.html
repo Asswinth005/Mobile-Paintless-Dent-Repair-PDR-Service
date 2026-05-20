@@ -245,7 +245,10 @@
         }
 
         .status-badge {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            white-space: nowrap;
+            flex-shrink: 0;
             padding: 0.2rem 0.6rem;
             border-radius: 50px;
             font-size: 0.7rem;
@@ -315,6 +318,7 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
+            white-space: nowrap;
             gap: 8px;
             border: none;
             cursor: pointer;
@@ -524,7 +528,7 @@
 
         <!-- ===== PDR TECHNICIANS PAGE ===== -->
         <div id="page-technicians" class="page-content hidden">
-            <div class="stat-card"><div class="flex justify-between items-center mb-4"><h3 class="font-display font-bold text-xl">PDR Service Technicians</h3><button class="btn-primary text-sm py-2 px-4">+ Add Technician</button></div>
+            <div class="stat-card"><div class="flex justify-between items-center mb-4 flex-wrap gap-2"><h3 class="font-display font-bold text-xl">PDR Service Technicians</h3><button class="btn-primary text-sm py-2 px-4">+ Add Technician</button></div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4"><div class="data-card flex justify-between items-center"><div class="flex items-center gap-3"><div class="w-12 h-12 bg-dent-gold/20 rounded-full flex items-center justify-center"><i class="fas fa-user-cog text-dent-gold text-xl"></i></div><div><p class="font-semibold">David Chen</p><p class="text-xs text-slate-500">Senior PDR Tech</p><p class="text-xs text-dent-gold">8 active jobs</p></div></div><span class="status-badge status-active">Available</span></div>
                 <div class="data-card flex justify-between items-center"><div class="flex items-center gap-3"><div class="w-12 h-12 bg-dent-gold/20 rounded-full flex items-center justify-center"><i class="fas fa-user-cog text-dent-gold text-xl"></i></div><div><p class="font-semibold">Maria Torres</p><p class="text-xs text-slate-500">Hail Damage Specialist</p><p class="text-xs text-dent-gold">5 active jobs</p></div></div><span class="status-badge status-active">On Route</span></div>
                 <div class="data-card flex justify-between items-center"><div class="flex items-center gap-3"><div class="w-12 h-12 bg-dent-gold/20 rounded-full flex items-center justify-center"><i class="fas fa-user-cog text-dent-gold text-xl"></i></div><div><p class="font-semibold">James Okonkwo</p><p class="text-xs text-slate-500">Crease & Bodyline Expert</p><p class="text-xs text-dent-gold">3 active jobs</p></div></div><span class="status-badge status-pending">Off Duty</span></div>
@@ -534,7 +538,7 @@
 
         <!-- ===== INSURANCE CLAIMS PAGE ===== -->
         <div id="page-claims" class="page-content hidden">
-            <div class="stat-card"><div class="flex justify-between items-center mb-4"><h3 class="font-display font-bold text-xl">Insurance Claims</h3><button class="btn-primary text-sm py-2 px-4">+ New Claim</button></div>
+            <div class="stat-card"><div class="flex justify-between items-center mb-4 flex-wrap gap-2"><h3 class="font-display font-bold text-xl">Insurance Claims</h3><button class="btn-primary text-sm py-2 px-4">+ New Claim</button></div>
                 <div class="space-y-3"><div class="data-card"><div class="flex justify-between items-start flex-wrap gap-2"><div><p class="font-semibold">#CLM-2025-0421 - Door Ding Repair</p><p class="text-xs text-slate-500">Customer: Michael Rodriguez | Submitted: May 12, 2025</p></div><span class="status-badge status-review">Under Review</span></div><div class="mt-2 flex justify-between text-sm"><span>Estimate: $298</span><button class="text-dent-gold">Review →</button></div></div>
                 <div class="data-card"><div class="flex justify-between items-start flex-wrap gap-2"><div><p class="font-semibold">#CLM-2025-0418 - Hail Damage Repair</p><p class="text-xs text-slate-500">Customer: Sarah Chen | Submitted: May 10, 2025</p></div><span class="status-badge status-active">Approved</span></div><div class="mt-2 flex justify-between text-sm"><span>Estimate: $1,450</span><button class="text-dent-gold">View Details →</button></div></div>
                 <div class="data-card"><div class="flex justify-between items-start flex-wrap gap-2"><div><p class="font-semibold">#CLM-2025-0415 - Crease Repair</p><p class="text-xs text-slate-500">Customer: James Wilson | Submitted: May 8, 2025</p></div><span class="status-badge status-pending">Pending</span></div><div class="mt-2 flex justify-between text-sm"><span>Estimate: $675</span><button class="text-dent-gold">Review →</button></div></div>
@@ -544,7 +548,7 @@
 
         <!-- ===== SERVICE APPOINTMENTS PAGE ===== -->
         <div id="page-appointments" class="page-content hidden">
-            <div class="stat-card"><div class="flex justify-between items-center mb-4"><h3 class="font-display font-bold text-xl">Mobile PDR Service Appointments</h3><button class="btn-primary text-sm py-2 px-4">+ Schedule</button></div>
+            <div class="stat-card"><div class="flex justify-between items-center mb-4 flex-wrap gap-2"><h3 class="font-display font-bold text-xl">Mobile PDR Service Appointments</h3><button class="btn-primary text-sm py-2 px-4">+ Schedule</button></div>
                 <div class="space-y-3"><div class="data-card"><div class="flex justify-between flex-wrap gap-2"><div><p class="font-semibold">Michael Rodriguez - Door Ding Repair</p><p class="text-xs text-slate-500">PDR Tech: David Chen | May 14, 2025 @ 10:30 AM</p></div><span class="status-badge status-review">Confirmed</span></div><div class="mt-1 text-xs text-dent-gold"><i class="fas fa-map-marker-alt"></i> 123 Main St, Los Angeles, CA</div></div>
                 <div class="data-card"><div class="flex justify-between flex-wrap gap-2"><div><p class="font-semibold">Sarah Chen - Hail Damage Repair</p><p class="text-xs text-slate-500">PDR Tech: Maria Torres | May 14, 2025 @ 2:00 PM</p></div><span class="status-badge status-review">In Progress</span></div><div class="mt-1 text-xs text-dent-gold"><i class="fas fa-map-marker-alt"></i> 456 Oak Ave, Los Angeles, CA</div></div>
                 <div class="data-card"><div class="flex justify-between flex-wrap gap-2"><div><p class="font-semibold">Robert Taylor - Crease Repair</p><p class="text-xs text-slate-500">PDR Tech: Lisa Wong | May 15, 2025 @ 9:00 AM</p></div><span class="status-badge status-pending">Pending</span></div><div class="mt-1 text-xs text-dent-gold"><i class="fas fa-map-marker-alt"></i> 789 Pine St, Santa Monica, CA</div></div></div>
