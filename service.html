@@ -10,7 +10,7 @@
     <meta name="description"
         content="Comprehensive paintless dent repair services — door dings, hail damage, creases, fleet PDR, and mobile concierge. Free estimates & insurance support.">
     <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="tailwind.js"></script>
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -438,14 +438,15 @@
 
         .badge-service {
             position: absolute;
-            top: -10px;
-            right: 20px;
+            top: 15px;
+            right: 15px;
             background: #E0A82B;
             color: #1E2A32;
             padding: 4px 16px;
             border-radius: 40px;
             font-size: 0.75rem;
             font-weight: bold;
+            z-index: 10;
         }
 
         .dark .badge-service {
@@ -480,7 +481,7 @@
         class="fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-dark-bg/95 backdrop-blur-md border-b border-[#E9E7E2] dark:border-gray-800">
         <div class="container mx-auto px-6">
             <div class="flex items-center justify-between h-20">
-                <a href="index.html" class="flex items-center space-x-3 group">
+                <a href="index.html" class="flex items-center gap-3 group">
                     <div
                         class="w-10 h-10 bg-dent-gold rounded-xl flex items-center justify-center transform group-hover:rotate-12 transition duration-300 shadow-md">
                         <i class="fas fa-car-side text-white text-xl"></i>
@@ -595,67 +596,109 @@
             </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Service 1 -->
-                <div class="service-card relative p-7 group">
-                    <div class="badge-service">Most Common</div>
-                    <div class="service-icon-lg mx-auto mb-5"><i class="fas fa-car-side"></i></div>
-                    <h3 class="text-2xl font-bold text-center mb-3">Door Ding Repair</h3>
-                    <p class="text-center opacity-75 text-sm mb-4">Parking lot mishaps, shopping cart dents, and minor
-                        impacts — completely erased using our micro-tool access technique.</p>
-                    <div class="flex justify-between items-center mt-4 pt-3 border-t border-dent-gold/20"><span
-                            class="text-dent-gold font-bold"><i class="far fa-clock"></i> 30-45 min</span><span
-                            class="text-lg font-black text-dent-gold">$75+</span></div>
+                <div class="service-card relative overflow-hidden group flex flex-col h-full">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="/assest/ding.jpg" alt="Door Ding Repair" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="badge-service">Most Common</div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60"></div>
+                    </div>
+                    <div class="p-7 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-3 text-dent-charcoal dark:text-white">Door Ding Repair</h3>
+                            <p class="opacity-75 text-sm mb-4 text-dent-charcoal/80 dark:text-gray-300">Parking lot mishaps, shopping cart dents, and minor impacts — completely erased using our micro-tool access technique.</p>
+                        </div>
+                        <div class="flex justify-between items-center mt-auto pt-3 border-t border-dent-gold/20">
+                            <span class="text-dent-gold font-bold"><i class="far fa-clock"></i> 30-45 min</span>
+                            <span class="text-lg font-black text-dent-gold">$75+</span>
+                        </div>
+                    </div>
                 </div>
                 <!-- Service 2 -->
-                <div class="service-card relative p-7 group">
-                    <div class="badge-service">Storm Season</div>
-                    <div class="service-icon-lg mx-auto mb-5"><i class="fas fa-cloud-rain"></i></div>
-                    <h3 class="text-2xl font-bold text-center mb-3">Hail Damage Repair</h3>
-                    <p class="text-center opacity-75 text-sm mb-4">Multiple dents from hailstorms — we use glue-pulling
-                        and metal massage to restore panels without repainting.</p>
-                    <div class="flex justify-between items-center mt-4 pt-3 border-t border-dent-gold/20"><span
-                            class="text-dent-gold font-bold"><i class="far fa-clock"></i> 2-4 hours</span><span
-                            class="text-lg font-black text-dent-gold">$150+</span></div>
+                <div class="service-card relative overflow-hidden group flex flex-col h-full">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="/assest/hail.jpg" alt="Hail Damage Repair" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="badge-service">Storm Season</div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60"></div>
+                    </div>
+                    <div class="p-7 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-3 text-dent-charcoal dark:text-white">Hail Damage Repair</h3>
+                            <p class="opacity-75 text-sm mb-4 text-dent-charcoal/80 dark:text-gray-300">Multiple dents from hailstorms — we use glue-pulling and metal massage to restore panels without repainting.</p>
+                        </div>
+                        <div class="flex justify-between items-center mt-auto pt-3 border-t border-dent-gold/20">
+                            <span class="text-dent-gold font-bold"><i class="far fa-clock"></i> 2-4 hours</span>
+                            <span class="text-lg font-black text-dent-gold">$150+</span>
+                        </div>
+                    </div>
                 </div>
                 <!-- Service 3 -->
-                <div class="service-card relative p-7 group">
-                    <div class="badge-service">Advanced</div>
-                    <div class="service-icon-lg mx-auto mb-5"><i class="fas fa-bezier-curve"></i></div>
-                    <h3 class="text-2xl font-bold text-center mb-3">Crease & Body Line</h3>
-                    <p class="text-center opacity-75 text-sm mb-4">Sharp creases along body lines require specialized
-                        leverage and light reflection mastery — our specialty.</p>
-                    <div class="flex justify-between items-center mt-4 pt-3 border-t border-dent-gold/20"><span
-                            class="text-dent-gold font-bold"><i class="far fa-clock"></i> 1-2 hours</span><span
-                            class="text-lg font-black text-dent-gold">$250+</span></div>
+                <div class="service-card relative overflow-hidden group flex flex-col h-full">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="/assest/crease2.jpg" alt="Crease & Body Line" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="badge-service">Advanced</div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60"></div>
+                    </div>
+                    <div class="p-7 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-3 text-dent-charcoal dark:text-white">Crease & Body Line</h3>
+                            <p class="opacity-75 text-sm mb-4 text-dent-charcoal/80 dark:text-gray-300">Sharp creases along body lines require specialized leverage and light reflection mastery — our specialty.</p>
+                        </div>
+                        <div class="flex justify-between items-center mt-auto pt-3 border-t border-dent-gold/20">
+                            <span class="text-dent-gold font-bold"><i class="far fa-clock"></i> 1-2 hours</span>
+                            <span class="text-lg font-black text-dent-gold">$250+</span>
+                        </div>
+                    </div>
                 </div>
                 <!-- Service 4 -->
-                <div class="service-card relative p-7 group">
-                    <div class="service-icon-lg mx-auto mb-5"><i class="fas fa-truck"></i></div>
-                    <h3 class="text-2xl font-bold text-center mb-3">Fleet & Commercial PDR</h3>
-                    <p class="text-center opacity-75 text-sm mb-4">Volume discounts for dealerships, rental fleets, and
-                        corporate vehicles. On-site fleet service available.</p>
-                    <div class="flex justify-between items-center mt-4 pt-3 border-t border-dent-gold/20"><span
-                            class="text-dent-gold font-bold"><i class="fas fa-tag"></i> Volume Pricing</span><span
-                            class="text-lg font-black text-dent-gold">Quote Based</span></div>
+                <div class="service-card relative overflow-hidden group flex flex-col h-full">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="/assest/fleet2.jpg" alt="Fleet & Commercial PDR" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60"></div>
+                    </div>
+                    <div class="p-7 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-3 text-dent-charcoal dark:text-white">Fleet & Commercial PDR</h3>
+                            <p class="opacity-75 text-sm mb-4 text-dent-charcoal/80 dark:text-gray-300">Volume discounts for dealerships, rental fleets, and corporate vehicles. On-site fleet service available.</p>
+                        </div>
+                        <div class="flex justify-between items-center mt-auto pt-3 border-t border-dent-gold/20">
+                            <span class="text-dent-gold font-bold"><i class="fas fa-tag"></i> Volume Pricing</span>
+                            <span class="text-lg font-black text-dent-gold">Quote Based</span>
+                        </div>
+                    </div>
                 </div>
                 <!-- Service 5 -->
-                <div class="service-card relative p-7 group">
-                    <div class="service-icon-lg mx-auto mb-5"><i class="fas fa-motorcycle"></i></div>
-                    <h3 class="text-2xl font-bold text-center mb-3">Motorcycle Tank Dents</h3>
-                    <p class="text-center opacity-75 text-sm mb-4">Delicate fuel tank dent removal — preserving paint
-                        and curves on two-wheeled machines.</p>
-                    <div class="flex justify-between items-center mt-4 pt-3 border-t border-dent-gold/20"><span
-                            class="text-dent-gold font-bold"><i class="far fa-clock"></i> 1-2 hours</span><span
-                            class="text-lg font-black text-dent-gold">$120+</span></div>
+                <div class="service-card relative overflow-hidden group flex flex-col h-full">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="/assest/motorcycle_dent.png" alt="Motorcycle Tank Dents" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60"></div>
+                    </div>
+                    <div class="p-7 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-3 text-dent-charcoal dark:text-white">Motorcycle Tank Dents</h3>
+                            <p class="opacity-75 text-sm mb-4 text-dent-charcoal/80 dark:text-gray-300">Delicate fuel tank dent removal — preserving paint and curves on two-wheeled machines.</p>
+                        </div>
+                        <div class="flex justify-between items-center mt-auto pt-3 border-t border-dent-gold/20">
+                            <span class="text-dent-gold font-bold"><i class="far fa-clock"></i> 1-2 hours</span>
+                            <span class="text-lg font-black text-dent-gold">$120+</span>
+                        </div>
+                    </div>
                 </div>
                 <!-- Service 6 -->
-                <div class="service-card relative p-7 group">
-                    <div class="service-icon-lg mx-auto mb-5"><i class="fas fa-microchip"></i></div>
-                    <h3 class="text-2xl font-bold text-center mb-3">EV & Aluminum Panel PDR</h3>
-                    <p class="text-center opacity-75 text-sm mb-4">Specialized techniques for aluminum body panels
-                        (Tesla, Ford F-150) — gentle and effective.</p>
-                    <div class="flex justify-between items-center mt-4 pt-3 border-t border-dent-gold/20"><span
-                            class="text-dent-gold font-bold"><i class="far fa-clock"></i> 1-3 hours</span><span
-                            class="text-lg font-black text-dent-gold">$200+</span></div>
+                <div class="service-card relative overflow-hidden group flex flex-col h-full">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="/assest/ev_dent.png" alt="EV & Aluminum Panel PDR" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60"></div>
+                    </div>
+                    <div class="p-7 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-3 text-dent-charcoal dark:text-white">EV & Aluminum Panel PDR</h3>
+                            <p class="opacity-75 text-sm mb-4 text-dent-charcoal/80 dark:text-gray-300">Specialized techniques for aluminum body panels (Tesla, Ford F-150) — gentle and effective.</p>
+                        </div>
+                        <div class="flex justify-between items-center mt-auto pt-3 border-t border-dent-gold/20">
+                            <span class="text-dent-gold font-bold"><i class="far fa-clock"></i> 1-3 hours</span>
+                            <span class="text-lg font-black text-dent-gold">$200+</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
