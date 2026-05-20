@@ -411,12 +411,14 @@
         .social-icon {
             width: 40px;
             height: 40px;
+            min-width: 40px;
             border-radius: 50%;
             background: #E9E7E2;
             color: #4A5A62;
             display: inline-flex;
             align-items: center;
             justify-content: center;
+            flex-shrink: 0;
             transition: all 0.2s;
         }
 
@@ -465,10 +467,6 @@
         <div class="container mx-auto px-6">
             <div class="flex items-center justify-between h-20">
                 <a href="index.html" class="flex items-center gap-3 group">
-                    <div
-                        class="w-10 h-10 bg-dent-gold rounded-xl flex items-center justify-center transform group-hover:rotate-12 transition duration-300 shadow-md">
-                        <i class="fas fa-car-side text-white text-xl"></i>
-                    </div>
                     <div dir="ltr" class="flex">
                         <span
                             class="text-2xl font-display font-bold tracking-tight text-dent-charcoal dark:text-white">DENT</span>
@@ -652,7 +650,7 @@
                 <p class="mt-5 text-lg opacity-80">From AI photo analysis to live technician tracking — we reinvented
                     dent repair.</p>
             </div>
-            <div class="grid md:grid-cols-3 gap-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-md md:max-w-4xl lg:max-w-none mx-auto">
                 <div class="text-center p-7 rounded-3xl transition-all hover:shadow-xl group">
                     <div
                         class="service-icon w-24 h-24 text-4xl mx-auto bg-gradient-to-br from-dent-gold/20 to-dent-gold/5 group-hover:scale-110 transition">
@@ -669,7 +667,7 @@
                     <h3 class="text-2xl font-bold mt-6">Live Repair Tracker</h3>
                     <p class="mt-3">Real-time dashboard with progress photos, ETA & technician chat.</p>
                 </div>
-                <div class="text-center p-7 rounded-3xl transition-all hover:shadow-xl group">
+                <div class="text-center p-7 rounded-3xl transition-all hover:shadow-xl group md:col-span-2 md:max-w-md md:mx-auto lg:col-span-1 lg:max-w-none w-full">
                     <div
                         class="service-icon w-24 h-24 text-4xl mx-auto bg-gradient-to-br from-dent-gold/20 to-dent-gold/5 group-hover:scale-110 transition">
                         <i class="fas fa-hand-holding-usd"></i>
@@ -695,14 +693,14 @@
                     <div class="space-y-5">
                         <div class="flex items-center justify-between border-b border-dent-gold/20 pb-3"><span
                                 class="font-bold">Minor Ding</span><span
-                                class="text-dent-gold font-black">$79–$149</span><i
+                                class="text-dent-gold font-black">$179–$149</span><i
                                 class="fas fa-golf-ball text-dent-gold"></i></div>
                         <div class="flex items-center justify-between border-b border-dent-gold/20 pb-3"><span
-                                class="font-bold">Moderate Crease</span><span
+                                class="font-bold">Low Crease</span><span
                                 class="text-dent-gold font-black">$159–$379</span><i
                                 class="fas fa-bezier-curve text-dent-gold"></i></div>
                         <div class="flex items-center justify-between border-b border-dent-gold/20 pb-3"><span
-                                class="font-bold">Severe Hail / Sharp Edge</span><span
+                                class="font-bold">Severe Hail</span><span
                                 class="text-dent-gold font-black">$399–$799</span><i
                                 class="fas fa-crown text-dent-gold"></i></div>
                     </div><button class="btn-dent mt-8"><i class="fas fa-calculator"></i> Calculate My Repair</button>
@@ -860,17 +858,16 @@
     <!-- FOOTER (identical structure to reference) -->
     <footer class="py-16">
         <div class="container mx-auto px-6 text-center md:text-start">
-            <div class="grid md:grid-cols-4 gap-10">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
                 <div>
-                    <div class="flex items-center justify-center md:justify-start gap-3 mb-5">
-                        <div class="w-10 h-10 bg-dent-gold rounded-xl flex items-center justify-center"><i
-                                class="fas fa-car-side text-white"></i></div><span dir="ltr"
-                            class="text-2xl font-display font-bold inline-flex">DENT<span
+                    <div class="flex flex-nowrap items-center justify-center md:justify-start gap-3 mb-5">
+                        <span dir="ltr"
+                            class="text-2xl font-display font-bold inline-flex whitespace-nowrap">DENT<span
                                 class="text-dent-gold">CRAFT</span></span>
                     </div>
                     <p class="text-[15px] opacity-80">Mobile paintless dent repair • PDR specialists since 2015. 12k+
                         vehicles restored.</p>
-                    <div class="flex justify-center md:justify-start gap-4 mt-6"><a href="#" class="social-icon"><i
+                    <div class="flex flex-nowrap justify-center md:justify-start gap-4 mt-6"><a href="#" class="social-icon"><i
                                 class="fab fa-instagram"></i></a><a href="#" class="social-icon"><i
                                 class="fab fa-facebook-f"></i></a><a href="#" class="social-icon"><i
                                 class="fab fa-x-twitter"></i></a></div>
