@@ -655,17 +655,21 @@
 
     <!-- GALLERY HERO -->
     <section
-        class="pt-36 pb-16 md:pt-44 md:pb-20 relative overflow-hidden bg-gradient-to-br from-dent-charcoal/5 via-transparent to-dent-gold/10">
-        <div class="container mx-auto px-6 text-center animate-slide-up">
+        class="pt-36 pb-16 md:pt-44 md:pb-20 relative overflow-hidden bg-dent-charcoal text-white">
+        <div class="absolute inset-0">
+            <img src="/assest/audi.jpg" alt="Premium Auto Gallery Background" class="w-full h-full object-cover opacity-30">
+            <div class="absolute inset-0 bg-gradient-to-b from-dent-charcoal/80 via-dent-charcoal/60 to-dent-charcoal"></div>
+        </div>
+        <div class="container mx-auto px-6 text-center animate-slide-up relative z-10">
             <div
-                class="inline-flex items-center gap-2 bg-white dark:bg-dark-card/80 px-5 py-2 rounded-full shadow-sm mb-6 border border-dent-gold/40">
-                <i class="fas fa-images text-dent-gold"></i><span class="text-sm font-bold tracking-wide">WORK GALLERY • REAL RESULTS</span>
+                class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-5 py-2 rounded-full shadow-sm mb-6 border border-dent-gold/40">
+                <i class="fas fa-images text-dent-gold"></i><span class="text-sm font-bold tracking-wide text-white">WORK GALLERY • REAL RESULTS</span>
             </div>
             <h1
-                class="text-4xl md:text-6xl lg:text-7xl font-display font-black text-dent-charcoal dark:text-white leading-tight">
+                class="text-4xl md:text-6xl lg:text-7xl font-display font-black text-white leading-tight">
                 Our <span class="text-dent-gold">Transformations</span></h1>
             <div class="premium-line mx-auto"></div>
-            <p class="text-lg md:text-xl text-dent-charcoal/80 dark:text-gray-300 max-w-2xl mx-auto mt-4">12,000+
+            <p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mt-4">12,000+
                 vehicles restored to factory finish — see the DentCraft difference</p>
         </div>
     </section>
@@ -734,13 +738,17 @@
     </section>
 
     <!-- TESTIMONIAL CTA -->
-    <section class="py-20 bg-gradient-to-r from-dent-gold/5 to-transparent">
-        <div class="container mx-auto px-6 text-center"><i
-                class="fas fa-quote-right text-5xl text-dent-gold/40 mb-4"></i>
-            <h2 class="text-3xl md:text-4xl font-display font-bold mb-6">Ready to See Your <span
+    <section class="py-24 relative overflow-hidden bg-dent-charcoal text-white">
+        <div class="absolute inset-0">
+            <img src="/assest/car.jpg" alt="Automotive Background" class="w-full h-full object-cover opacity-20">
+            <div class="absolute inset-0 bg-gradient-to-t from-dent-charcoal via-dent-charcoal/80 to-transparent"></div>
+        </div>
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <i class="fas fa-quote-right text-5xl text-dent-gold/60 mb-4"></i>
+            <h2 class="text-3xl md:text-5xl font-display font-black mb-6">Ready to See Your <br/><span
                     class="text-dent-gold">Own Transformation?</span></h2>
-            <p class="text-xl max-w-2xl mx-auto mb-8 opacity-80">Upload photos of your dent and get a free estimate
-                within 60 seconds.</p><button class="btn-dent text-lg"><i class="fas fa-camera"></i> Get Free Quote
+            <p class="text-xl max-w-2xl mx-auto mb-8 text-gray-300">Upload photos of your dent and get a free estimate
+                within 60 seconds.</p><button class="btn-dent text-lg shadow-xl"><i class="fas fa-camera"></i> Get Free Quote
                 Now</button>
         </div>
     </section>
@@ -812,15 +820,15 @@
     <script>
         // Gallery Data
         const galleryData = [
-            { id: 1, category: 'door', title: 'Door Ding Removal', image: '/assest/ding.jpg', vehicle: 'Honda Civic', duration: '35 min' },
+            { id: 1, category: 'door', title: 'Door Ding Removal', image: '/assest/door.jpg', vehicle: 'Honda Civic', duration: '35 min' },
             { id: 2, category: 'hail', title: 'Hail Storm Recovery', image: '/assest/hail_storm_recovery.png', vehicle: 'Tesla Model 3', duration: '2.5 hours' },
             { id: 3, category: 'crease', title: 'Bodyline Crease Repair', image: '/assest/bd.jpg', vehicle: 'BMW 3 Series', duration: '90 min' },
-            { id: 4, category: 'door', title: 'Parking Lot Ding', image: '/assest/ding2.jpg', vehicle: 'Toyota Camry', duration: '40 min' },
-            { id: 5, category: 'hail', title: 'Severe Hail Damage', image: '/assest/hail2.jpg', vehicle: 'Ford F-150', duration: '4 hours' },
-            { id: 6, category: 'fleet', title: 'Fleet Van Restoration', image: '/assest/fleet2.jpg', vehicle: 'Mercedes Sprinter', duration: '2 hours' },
-            { id: 7, category: 'crease', title: 'Sharp Edge Dent', image: '/assest/crease2.jpg', vehicle: 'Audi A4', duration: '75 min' },
-            { id: 8, category: 'door', title: 'Shopping Cart Damage', image: '/assest/car.jpg', vehicle: 'Mazda CX-5', duration: '30 min' },
-            { id: 9, category: 'hail', title: 'Hail Dent Package', image: '/assest/mir.jpg', vehicle: 'Subaru Outback', duration: '3 hours' }
+            { id: 4, category: 'door', title: 'Parking Lot Ding', image: '/assest/car1.jpg', vehicle: 'Toyota Camry', duration: '40 min' },
+            { id: 5, category: 'hail', title: 'Severe Hail Damage', image: '/assest/price_hail.png', vehicle: 'Ford F-150', duration: '4 hours' },
+            { id: 6, category: 'fleet', title: 'Fleet Van Restoration', image: '/assest/home2_hero_v3.png', vehicle: 'Mercedes Sprinter', duration: '2 hours' },
+            { id: 7, category: 'crease', title: 'Sharp Edge Dent', image: '/assest/dodge.jpg', vehicle: 'Audi A4', duration: '75 min' },
+            { id: 8, category: 'door', title: 'Shopping Cart Damage', image: '/assest/ding2.jpg', vehicle: 'Mazda CX-5', duration: '30 min' },
+            { id: 9, category: 'hail', title: 'Hail Dent Package', image: '/assest/pdr.jpg', vehicle: 'Subaru Outback', duration: '3 hours' }
         ];
 
         let currentFilter = 'all';

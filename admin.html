@@ -455,10 +455,8 @@
             <div class="sidebar-item" data-page="settings"><i class="fas fa-cog"></i><span>Settings</span></div>
         </nav>
         <div class="absolute bottom-0 left-0 right-0 p-4 border-t border-dent-gold/20 dark:border-slate-700">
-            <div class="flex gap-2">
-                <button id="theme-toggle" class="toggle-btn flex-1"><i class="fas fa-moon"></i><i class="fas fa-sun hidden"></i></button>
-                <button id="rtl-toggle" class="toggle-btn flex-1">⇄</button>
-                <a href="login.html" title="Logout" class="toggle-btn flex-1"><i class="fas fa-sign-out-alt"></i></a>
+            <div class="flex">
+                <a href="login.html" class="toggle-btn w-full gap-2 font-semibold text-sm">Logout <i class="fas fa-sign-out-alt"></i></a>
             </div>
         </div>
     </div>
@@ -471,12 +469,8 @@
                 <p class="text-sm text-slate-500 dark:text-slate-400" id="page-subtitle">Welcome back, Admin</p>
             </div>
             <div class="flex items-center gap-4">
-                <div class="text-right hidden md:block">
-                    <p class="text-sm font-semibold">John Carter</p>
-                    <p class="text-xs text-slate-500">Operations Manager</p>
-                </div>
-                <div class="w-10 h-10 bg-dent-gold/20 rounded-full flex items-center justify-center"><i class="fas fa-user-shield text-dent-gold"></i></div>
-                <a href="login.html" class="bg-dent-charcoal hover:bg-dent-slate text-white font-semibold text-xs px-3 py-2 rounded-xl transition flex items-center gap-1.5 shadow-sm"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                <button id="theme-toggle-top" class="toggle-btn hidden md:inline-flex"><i class="fas fa-moon"></i><i class="fas fa-sun hidden"></i></button>
+                <button id="rtl-toggle-top" class="toggle-btn hidden md:inline-flex">⇄</button>
             </div>
         </div>
 
@@ -571,11 +565,11 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const themeToggle = document.getElementById('theme-toggle'), themeToggleMobile = document.getElementById('theme-toggle-mobile');
+            const themeToggle = document.getElementById('theme-toggle'), themeToggleMobile = document.getElementById('theme-toggle-mobile'), themeToggleTop = document.getElementById('theme-toggle-top');
             function setTheme(isDark) {
                 if (isDark) document.documentElement.classList.add('dark');
                 else document.documentElement.classList.remove('dark');
-                [themeToggle, themeToggleMobile].forEach(btn => {
+                [themeToggle, themeToggleMobile, themeToggleTop].forEach(btn => {
                     if (btn) {
                         let moon = btn.querySelector('.fa-moon'), sun = btn.querySelector('.fa-sun');
                         if (isDark) { moon?.classList.add('hidden'); sun?.classList.remove('hidden'); }
@@ -588,12 +582,14 @@
             setTheme(savedTheme === 'dark');
             if (themeToggle) themeToggle.addEventListener('click', () => setTheme(!document.documentElement.classList.contains('dark')));
             if (themeToggleMobile) themeToggleMobile.addEventListener('click', () => setTheme(!document.documentElement.classList.contains('dark')));
+            if (themeToggleTop) themeToggleTop.addEventListener('click', () => setTheme(!document.documentElement.classList.contains('dark')));
 
-            const rtlToggle = document.getElementById('rtl-toggle'), rtlToggleMobile = document.getElementById('rtl-toggle-mobile');
+            const rtlToggle = document.getElementById('rtl-toggle'), rtlToggleMobile = document.getElementById('rtl-toggle-mobile'), rtlToggleTop = document.getElementById('rtl-toggle-top');
             function setRTL(isRTL) { document.documentElement.dir = isRTL ? 'rtl' : 'ltr'; localStorage.setItem('dir', isRTL ? 'rtl' : 'ltr'); }
             if (localStorage.getItem('dir') === 'rtl') setRTL(true);
             if (rtlToggle) rtlToggle.addEventListener('click', () => setRTL(document.documentElement.dir !== 'rtl'));
             if (rtlToggleMobile) rtlToggleMobile.addEventListener('click', () => setRTL(document.documentElement.dir !== 'rtl'));
+            if (rtlToggleTop) rtlToggleTop.addEventListener('click', () => setRTL(document.documentElement.dir !== 'rtl'));
 
             const menuToggle = document.getElementById('menuToggle'), sidebar = document.getElementById('sidebar'), overlay = document.getElementById('sidebarOverlay');
             function closeSidebar() { sidebar.classList.remove('open'); overlay.classList.remove('open'); }
