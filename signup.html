@@ -153,11 +153,11 @@
         /* input styling */
         .signup-input {
             width: 100%;
-            padding: 0.8rem 1.2rem 0.8rem 3rem;
+            padding: 0.85rem 1.2rem 0.85rem 3rem;
             border-radius: 50px;
             border: 1px solid #CFD5DB;
             background: white;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             transition: all 0.2s;
             color: #1E2A32;
             font-family: 'Roboto', sans-serif;
@@ -221,13 +221,15 @@
         }
 
         [dir="rtl"] .password-wrapper .signup-input {
-            padding-right: 1.2rem;
+            padding-right: 3rem;
             padding-left: 3rem;
         }
 
         [dir="rtl"] .input-icon {
             left: auto;
-            right: 1.1rem;
+            right: 0;
+            padding-left: 0;
+            padding-right: 1rem;
         }
 
         /* primary button */
@@ -319,13 +321,10 @@
 
         /* RTL adjustments */
         [dir="rtl"] .signup-input {
-            padding: 0.8rem 3rem 0.8rem 1.2rem;
+            padding: 0.85rem 3rem 0.85rem 1.2rem;
         }
 
-        [dir="rtl"] .input-icon {
-            left: auto;
-            right: 1.1rem;
-        }
+
 
         [dir="rtl"] .fa-arrow-right {
             transform: scaleX(-1);
@@ -501,8 +500,8 @@
             }
 
             .signup-input {
-                padding: 0.5rem 0.8rem 0.5rem 2.5rem;
-                font-size: 0.8rem;
+                padding: 0.6rem 0.8rem 0.6rem 2.5rem;
+                font-size: 0.85rem;
             }
 
             .dent-btn {
@@ -584,8 +583,8 @@
             }
 
             .signup-input {
-                padding: 0.6rem 0.8rem 0.6rem 2.6rem;
-                font-size: 0.8rem;
+                padding: 0.7rem 1rem 0.7rem 2.8rem;
+                font-size: 0.85rem;
             }
 
             .toggle-password {
@@ -748,7 +747,7 @@
             </div>
 
             <!-- ===== LOGIN LINK ===== -->
-            <div class="mt-4 text-center">
+            <div class="mt-4 text-center" dir="ltr">
                 <span class="text-xs text-dent-slate dark:text-gray-400">Already have an account?</span>
                 <a href="login.html"
                     class="text-xs font-semibold text-dent-gold dark:text-dent-gold-bright hover:text-dent-gold-dark ml-1 rtl:mr-1 hover:underline">
